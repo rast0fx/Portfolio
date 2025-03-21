@@ -19,13 +19,12 @@
         header {
             background: linear-gradient(145deg, #161b22, #1f2937);
             color: #58a6ff;
-            padding: 2rem 1rem; /* Use rem for better scaling */
+            padding: 30px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 2rem;
+            gap: 30px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            flex-direction: column; /* Stack items vertically */
         }
 
         .profile-pic {
@@ -37,7 +36,6 @@
             transition: transform 0.5s ease-in-out;
             box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
             cursor: pointer; /* Make it clear that it's clickable */
-            max-width: 100%; /* Ensure it doesn't overflow */
         }
 
         .profile-pic:hover {
@@ -45,7 +43,7 @@
         }
 
         .header-text h1 {
-            margin-bottom: 0.5rem; /* Use rem for better scaling */
+            margin-bottom: 5px;
             font-size: 2.2rem;
             letter-spacing: 0.5px;
         }
@@ -56,31 +54,25 @@
             color: #8b949e;
         }
 
-        .instruction {
-            font-size: 0.4rem;
-            color: #8b949e;
-            margin-top: 0.5rem; /* Use rem for better scaling */
-        }
-
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 0 1rem; /* Use rem for better scaling */
+            padding: 0 20px;
         }
 
         .tab-container {
             display: flex;
             justify-content: center;
-            margin: 2rem 0 1rem; /* Use rem for better scaling */
+            margin: 30px 0 20px;
             flex-wrap: wrap;
         }
 
         .tab-button {
             background: #1f6feb;
             color: white;
-            padding: 0.75rem 1.5rem; /* Use rem for better scaling */
+            padding: 12px 24px;
             border: none;
-            margin: 0.5rem; /* Use rem for better scaling */
+            margin: 6px;
             cursor: pointer;
             border-radius: 6px;
             transition: all 0.3s;
@@ -96,11 +88,11 @@
 
         .content {
             display: none;
-            padding: 2rem; /* Use rem for better scaling */
+            padding: 30px;
             background: #161b22;
             border-radius: 12px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            margin: 1rem auto; /* Use rem for better scaling */
+            margin: 20px auto;
             max-width: 800px;
             animation: fadeIn 0.5s;
         }
@@ -148,7 +140,6 @@
             transition: transform 0.3s, box-shadow 0.3s;
             object-fit: cover;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 100%; /* Ensure it doesn't overflow */
         }
 
         .certificate:hover {
@@ -204,7 +195,6 @@
             width: 300px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
-            max-width: 100%; /* Ensure it doesn't overflow */
         }
 
         .project-card:hover {
@@ -268,16 +258,10 @@
             font-size: 0.8rem;
         }
 
-        /* Media Queries for Responsiveness */
-        @media (max-width: 1024px) {
-            .project-card {
-                width: 45%; /* Adjust width for medium screens */
-            }
-        }
-
         @media (max-width: 768px) {
             header {
-                padding: 1.5rem 0.5rem; /* Adjusted for smaller screens */
+                flex-direction: column;
+                padding: 20px 10px;
             }
             
             .profile-pic {
@@ -286,41 +270,17 @@
             }
             
             .tab-button {
-                padding: 0.5rem 1rem; /* Adjusted for smaller screens */
+                padding: 10px 15px;
                 font-size: 0.9rem;
             }
             
             .content {
-                padding: 1.5rem; /* Adjusted for smaller screens */
+                padding: 20px 15px;
             }
             
             .project-card {
-                width: 100%; /* Full width for project cards */
+                width: 100%;
                 max-width: 280px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .tab-button {
-                padding: 0.5rem; /* Further adjustments for very small screens */
-                font-size: 0.8rem;
-            }
-
-            .project-card {
-                width: 100%; /* Ensure full width on very small screens */
-                max-width: 100%; /* Ensure full width on very small screens */
-            }
-
-            .header-text h1 {
-                font-size: 1.8rem; /* Smaller font size for mobile */
-            }
-
-            .header-text p {
-                font-size: 1rem; /* Smaller font size for mobile */
-            }
-
-            .instruction {
-                font-size: 0.3rem; /* Smaller font size for mobile */
             }
         }
     </style>
@@ -329,9 +289,10 @@
     <header>
         <img src="https://i.postimg.cc/MKZKcFYP/9774847c-a933-4b75-a008-92dfaafe2971.jpg" alt="Mhamad Koussa" class="profile-pic" onclick="showSections()">
         <div class="header-text">
-            <p class ="instruction">Click on the picture to view my projects!</p>
+          
             <h3>&copy; 2025 Mhamad Koussa | Portfolio</h3>
             <p><i>IT Student/Enthusiast • Beginner Web Developer</i></p>
+            <p> Click on the logo to view my projects! </p>
         </div>
     </header>
 
@@ -339,6 +300,7 @@
         <div class="tab-container">
             <button class="tab-button" onclick="openTab('about')">About Me</button>
             <button class="tab-button" onclick="openTab('education')">Education</button>
+         
             <button class="tab-button" onclick="openTab('certificates')">Certificates</button>
         </div>
         
@@ -368,7 +330,7 @@
         <div id="education" class="content">
             <h2>Education Experience</h2>
             <p>I'm currently studying IT at CIS College (Barja Branch) where I'm building a strong foundation in computer science and information technology principles.</p>
-            <p>Additionally, I'm taking specialized courses at <a href="https://robomind-edu.com/" target="_blank"> <font color="#0437F2"> Robomind </font>  </a>, focusing on web development, programming, and digital skills that will help me advance in my tech career. (CSS, html, Java, mySQL, PHP)</p>
+            <p>Additionally, I'm taking specialized courses at <a href="https://robomind-edu.com/" target="_blank"> <font color="white"> Robomind </font>  </a>, focusing on web development, programming, and digital skills that will help me advance in my tech career. (CSS, html, Java, mySQL, PHP)</p>
         </div>
         
         <div id="projects" class="content">
@@ -405,7 +367,8 @@
                         <span class="project-tag">CSS</span>
                     </div>
                 </div>
-            </div </div>
+            </div>
+        </div>
 
         <div id="certificates" class="content">
             <h2>Certificates</h2>
@@ -689,7 +652,7 @@
                 }
             
                 @media (min-width: 576px) {
- .container {
+                  .container {
                     max-width: 540px;
                   }
                 }
@@ -843,7 +806,7 @@
                   </div>
         
                   <div class="form-group">
-                    <p> Would you recommend this survey to a friend?</p>
+                    <p>Would you recommend this survey to a friend?</p>
                     <label>
                       <input
                         name="user-recommend"
@@ -851,25 +814,31 @@
                         type="radio"
                         class="input-radio"
                         checked
-                      />Definitely</label>
+                      />Definitely</label
+                    >
                     <label>
                       <input
                         name="user-recommend"
                         value="maybe"
                         type="radio"
                         class="input-radio"
-                      />Maybe</label>
-                    <label>
-                      <input
+                      />Maybe</label
+                    >
+        
+                    <label
+                      ><input
                         name="user-recommend"
                         value="not-sure"
                         type="radio"
                         class="input-radio"
-                      />Not sure</label>
+                      />Not sure</label
+                    >
                   </div>
         
                   <div class="form-group">
-                    <p>What is your favorite feature of the platform?</p>
+                    <p>
+                      What is your favorite feature of platform?
+                    </p>
                     <select id="most-like" name="mostLike" class="form-control" required>
                       <option disabled selected value>Select an option</option>
                       <option value="challenges">Challenges</option>
@@ -880,86 +849,99 @@
                   </div>
         
                   <div class="form-group">
-                    <p>What would you like to see improved?
+                    <p>
+                      What would you like to see improved?
                       <span class="clue">(Check all that apply)</span>
                     </p>
-                    <label>
-                      <input
+        
+                    <label
+                      ><input
                         name="prefer"
                         value="front-end-projects"
                         type="checkbox"
                         class="input-checkbox"
-                      />Front-end Projects</label>
+                      />Front-end Projects</label
+                    >
                     <label>
                       <input
                         name="prefer"
                         value="back-end-projects"
                         type="checkbox"
                         class="input-checkbox"
-                      />Back-end Projects</label>
-                    <label>
-                      <input
+                      />Back-end Projects</label
+                    >
+                    <label
+                      ><input
                         name="prefer"
                         value="data-visualization"
                         type="checkbox"
                         class="input-checkbox"
-                      />Data Visualization</label>
-                    <label>
-                      <input
+                      />Data Visualization</label
+                    >
+                    <label
+                      ><input
                         name="prefer"
                         value="challenges"
                         type="checkbox"
                         class="input-checkbox"
-                      />Challenges</label>
-                    <label>
-                      <input
+                      />Challenges</label
+                    >
+                    <label
+                      ><input
                         name="prefer"
                         value="open-source-community"
                         type="checkbox"
                         class="input-checkbox"
-                      />Open Source Community</label>
-                    <label>
-                      <input
+                      />Open Source Community</label
+                    >
+                    <label
+                      ><input
                         name="prefer"
                         value="gitter-help-rooms"
                         type="checkbox"
                         class="input-checkbox"
-                      />Gitter help rooms</label>
-                    <label>
-                      <input
+                      />Gitter help rooms</label
+                    >
+                    <label
+                      ><input
                         name="prefer"
                         value="videos"
                         type="checkbox"
                         class="input-checkbox"
-                      />Videos</label>
-                    <label>
-                      <input
+                      />Videos</label
+                    >
+                    <label
+                      ><input
                         name="prefer"
                         value="city-meetups"
                         type="checkbox"
                         class="input-checkbox"
-                      />City Meetups</label>
-                    <label>
-                      <input
+                      />City Meetups</label
+                    >
+                    <label
+                      ><input
                         name="prefer"
                         value="wiki"
                         type="checkbox"
                         class="input-checkbox"
-                      />Wiki</label>
-                    <label>
-                      <input
+                      />Wiki</label
+                    >
+                    <label
+                      ><input
                         name="prefer"
                         value="forum"
                         type="checkbox"
                         class="input-checkbox"
-                      />Forum</label>
-                    <label>
-                      <input
+                      />Forum</label
+                    >
+                    <label
+                      ><input
                         name="prefer"
                         value="additional-courses"
                         type="checkbox"
                         class="input-checkbox"
-                      />Additional Courses</label>
+                      />Additional Courses</label
+                    >
                   </div>
         
                   <div class="form-group">
@@ -1007,7 +989,7 @@
             newTab.document.close();
         }
         
-        // Function to open stopwatch project in new tab
+        // // Function to open stopwatch project in new tab
         function openStopwatchProject() {
             const stopwatchHTML = document.getElementById('stopwatch-project-html').innerHTML;
             const newTab = window.open('', '_blank');
