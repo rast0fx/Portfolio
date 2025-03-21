@@ -25,6 +25,7 @@
             justify-content: center;
             gap: 30px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            flex-direction: column; /* Stack items vertically */
         }
 
         .profile-pic {
@@ -35,6 +36,7 @@
             border: 4px solid #58a6ff;
             transition: transform 0.5s ease-in-out;
             box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+            cursor: pointer; /* Make it clear that it's clickable */
         }
 
         .profile-pic:hover {
@@ -51,6 +53,12 @@
             margin-top: 0;
             font-size: 1.1rem;
             color: #8b949e;
+        }
+
+        .instruction {
+            font-size: 0.4rem;
+            color: #8b949e;
+            margin-top: 10px;
         }
 
         .container {
@@ -259,7 +267,6 @@
 
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
                 padding: 20px 10px;
             }
             
@@ -286,18 +293,20 @@
 </head>
 <body>
     <header>
-        <img src="https://i.postimg.cc/MKZKcFYP/9774847c-a933-4b75-a008-92dfaafe2971.jpg" alt="Mhamad Koussa" class="profile-pic">
+        <img src="https://i.postimg.cc/MKZKcFYP/9774847c-a933-4b75-a008-92dfaafe2971.jpg" alt="Mhamad Koussa" class="profile-pic" onclick="showSections()">
         <div class="header-text">
+            <p class="instruction">Click on the picture to view my projects!</p>
             <h3>&copy; 2025 Mhamad Koussa | Portfolio</h3>
             <p><i>IT Student/Enthusiast • Beginner Web Developer</i></p>
         </div>
-    
+        
+    </header>
+
     <div class="container">
         <div class="tab-container">
             <button class="tab-button" onclick="openTab('about')">About Me</button>
             <button class="tab-button" onclick="openTab('education')">Education</button>
-            <button class="tab-button" onclick="openTab('projects')">Mini Projects</button>
-            <button class="tab-button" onclick="openTab('SurveyForm')">Other Projects</button>
+        
             <button class="tab-button" onclick="openTab('certificates')">Certificates</button>
         </div>
         
@@ -307,33 +316,31 @@
             <p>I enjoy learning new programming languages and frameworks, solving problems, and building projects that challenge my skills.</p>
             <div id="socials" class="content">
               <h2>Connect With Me</h2>
-              
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/mk0uss4/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram social-icon instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mk0uss4" target="_blank" aria-label="TikTok">
+                    <i class="fab fa-tiktok social-icon tiktok"></i>
+                </a>
+                <a href="https://discordapp.com/users/954061819952132106" target="_blank" aria-label="Discord">
+                    <i class="fab fa-discord social-icon discord"></i>
+                </a>
+                <a href="https://wa.me/96176077021" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp social-icon whatsapp"></i>
+                </a>
+            </div>
         </div>
-        <div class="social-links">
-          <a href="https://www.instagram.com/mk0uss4/" target="_blank" aria-label="Instagram">
-              <i class="fab fa-instagram social-icon instagram"></i>
-          </a>
-          <a href="https://www.tiktok.com/@mk0uss4" target="_blank" aria-label="TikTok">
-              <i class="fab fa-tiktok social-icon tiktok"></i>
-          </a>
-          <a href="https://discordapp.com/users/954061819952132106" target="_blank" aria-label="Discord">
-              <i class="fab fa-discord social-icon discord"></i>
-          </a>
-          <a href="https://wa.me/96176077021" target="_blank" aria-label="WhatsApp">
-              <i class="fab fa-whatsapp social-icon whatsapp"></i>
-          </a>
-      </div>
-    </div>
-    </div> 
         
         <div id="education" class="content">
             <h2>Education Experience</h2>
             <p>I'm currently studying IT at CIS College (Barja Branch) where I'm building a strong foundation in computer science and information technology principles.</p>
-            <p>Additionally, I'm taking specialized courses at <a href="https://robomind-edu.com/" target="_blank"> <font color="white"> Robomind </font>  </a>, focusing on web development, programming, and digital skills that will help me advance in my tech career. (CSS, html, Java, mySQL, PHP)</p>
+            <p>Additionally, I'm taking specialized courses at <a href="https://robomind-edu.com/" target="_blank"> <font color="#0437F2"> Robomind </font>  </a>, focusing on web development, programming, and digital skills that will help me advance in my tech career. (CSS, html, Java, mySQL, PHP)</p>
         </div>
         
         <div id="projects" class="content">
-            <h2>Mini Projects</h2>
+            <h2>Projects</h2>
             <div class="project-gallery">
                 <div class="project-card">
                     <h3 class="project-title">Digital Clock</h3>
@@ -356,626 +363,613 @@
                         <span class="project-tag">JavaScript</span>
                     </div>
                 </div>
-            </div>
-        </div>
 
-
-        
-        <div id="certificates" class="content">
-            <h2>Certificates</h2>
-            <div class="certificate-gallery">
-                <img src="https://i.postimg.cc/VvBYfrHH/Whats-App-Image-2025-03-19-at-12-31-57-PM.jpg" alt="Certificate 1" class="certificate" onclick="window.open(this.src, '_blank')">
-                
-            </div>
-        </div>
-        
-        
-
-    <div id="SurveyForm" class="content">
-      
-        <div class="project-gallery">
-            <div class="project-card">
-                <h3 class="project-title">Mock Survey Form</h3>
-                <p class="project-description">A simple Mock survey form with various input fields and options for users to provide feedback.</p>
-                <a href="javascript:void(0)" class="view-project-btn" onclick="openSurveyFormProject()">View Project</a>
-                <div class="project-tags">
-                    <span class="project-tag">HTML</span>
-                    <span class="project-tag">CSS</span>
-                  
+                <div class="project-card">
+                    <h3 class="project-title">Mock Survey Form</h3>
+                    <p class="project-description">A simple Mock survey form with various input fields and options for users to provide feedback.</p>
+                    <a href="javascript:void(0)" class="view-project-btn" onclick="openSurveyFormProject()">View Project</a>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-
-    <!-- Hidden clock HTML to be opened in new tab -->
-    <div id="clock-project-html" style="display: none;">
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width">
-          <title>Digital Clock</title>
-          <style>
-            body {
-              background: #FAFAEB;
-              font-family: Arial, sans-serif;
-            }
-            #clock {
-              background-color: #fbeaea;
-              padding: 20px;
-              border-radius: 25px;
-              text-align: center;
-            }
-            #MyClockDisplay {
-              border: 2px dashed #495563;
-              padding: 10px;
-              border-radius: 20px;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translateX(-50%) translateY(-50%);
-              color: #6d8687;
-              font-size: 60px;
-              font-family: Orbitron;
-              letter-spacing: 7px;
-            }
-            h1, h2 {
-              text-align: center;
-              color: #dba399;
-              margin: 20px;
-              font-family: 'Roboto', sans-serif;
-              font-weight: 100;
-              font-size: 70px;
-              text-transform: uppercase;
-            }
-          </style>
-        </head>
-        <body>
-          <div id="clock">
-            <h1>Digital Clock</h1>
-            <h2>(12-Hour Pattern)</h2>
-            <div id="MyClockDisplay"></div>
-          </div> 
-          <script>
-            function showTime() {
-              var date = new Date();
-              var h = date.getHours(); // 0 - 23
-              var m = date.getMinutes(); // 0 - 59
-              var s = date.getSeconds(); // 0 - 59
-              var session = "AM";
-              if (h == 0) {
-                h = 12;
-              }
-              if (h > 12) {
-                h = h - 12;
-                session = "PM";
-              }
-              h = (h < 10) ? "0" + h : h;
-              m = (m < 10) ? "0" + m : m;
-              s = (s < 10) ? "0" + s : s;
-              var time = h + ":" + m + ":" + s + " " + session;
-              document.getElementById("MyClockDisplay").innerText = time;
-              setTimeout(showTime, 1000);
-            }
-            showTime();
-          </script>
-        </body>
-        </html>
-    </div>
-
-    <!-- Hidden stopwatch HTML to be opened in new tab -->
-    <div id="stopwatch-project-html" style="display: none;">
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width">
-          <title>Stopwatch</title>
-          <style>
-            body {
-              background: aqua;
-              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            }
-            .wrapper {
-              color: white;
-              text-align: center;
-              position: absolute;
-              top: 20%;
-              left: 25%;
-            }
-            h1 {
-              font-family: 'Roboto', sans-serif;
-              font-weight: 100;
-              font-size: 54px;
-              text-transform: uppercase;
-            }
-            #time {
-              letter-spacing: 7px;
-              font-size: 70px;
-              font-weight: bold;
-              margin: 0;
-              margin-top: 24px;
-              margin-bottom: 24px;
-            }
-            button {
-              cursor: pointer;
-              font-size: 16px;
-              padding: 18px 10px;
-              margin: 10px;
-              width: 180px;
-              background: rgb(22, 171, 230);
-              color: white;
-              border: solid 2px white;
-              box-shadow: 5px 5px 5px rgb(180, 177, 177);
-              border-radius: 5px;
-            }
-            button:hover {
-              background: white;
-              border: solid 2px rgb(22, 171, 230);
-              color: skyblue;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="wrapper">
-            <h1>Stopwatch</h1>
-            <h2 id="time">00:00:00</h2>
-            <button id="button-start">Start</button>
-            <button id="button-stop">Stop</button>
-            <button id="button-reset">Reset</button>
-          </div>
-          <script>
-            var milli_seconds = 0, seconds = 0, minutes = 0;
-            var h1 = document.getElementById('time')
-            start = document.getElementById('button-start'),
-            stop = document.getElementById('button-stop'),
-            clear = document.getElementById('button-reset');
-            var interval = 1;
-            function count() {
-              interval = 1;
-              milli_seconds += interval;
-              if (milli_seconds >= 100) {
-                milli_seconds = 0;
-                seconds += interval;
-              }
-              if (seconds >= 60) {
-                seconds = 0;
-                minutes += interval;
-              }
-              h1.textContent = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds ? (seconds > 9 ? seconds : "0" + seconds) : "00") + ":" + (milli_seconds > 9 ? milli_seconds : "0" + milli_seconds);
-              timer();
-            }
-            function timer() {
-              t = setTimeout(count, 10);
-            }
-            /* Start button */
-            start.onclick = count;
-            /* Stop button */
-            stop.onclick = function() {
-              clearTimeout(t);
-            }
-            /* Clear button */
-            clear.onclick = function() {
-              h1.textContent = "00:00:00";
-              seconds = 0;
-              minutes = 0;
-              milli_seconds = 0;
-              interval = 0;
-            }
-          </script>
-        </body>
-        </html>
-    </div>
-
-    <div id="SurveyForm-project-html" style="display: none;">
-        <!DOCTYPE html>
-        <html>
-        
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width">
-          <title>Mock Survey form</title>
-          <style>
-            @import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
-        
-            :root {
-              --color-white: #f3f3f3;
-              --color-darkblue: #1b1b32;
-              --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
-              --color-green: #37af65;
-            }
-        
-            *,
-            *::before,
-            *::after {
-              box-sizing: border-box;
-            }
-        
-            body {
-              font-family: 'Poppins', sans-serif;
-              font-size: 1rem;
-              font-weight: 400;
-              line-height: 1.4;
-              color: var(--color-white);
-              margin: 0;
-            }
-        
-            /* mobile friendly alternative to using background-attachment: fixed */
-            body::before {
-              content: '';
-              position: fixed;
-              top: 0;
-              left: 0;
-              height: 100%;
-              width: 100%;
-              z-index: -1;
-              background: var(--color-darkblue);
-              background-image: linear-gradient(
-                  115deg,
-                  rgba(58, 58, 158, 0.8),
-                  rgba(136, 136, 206, 0.7)
-                ),
-                url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-        
-            h1 {
-              font-weight: 400;
-              line-height: 1.2;
-            }
-        
-            p {
-              font-size: 1.125rem;
-            }
-        
-            h1,
-            p {
-              margin-top: 0;
-              margin-bottom: 0.5rem;
-            }
-        
-            label {
-              display: flex;
-              align-items: center;
-              font-size: 1.125rem;
-              margin-bottom: 0.5rem;
-            }
-        
-            input,
-            button,
-            select,
-            textarea {
-              margin: 0;
-              font-family: inherit;
-              font-size: inherit;
-              line-height: inherit;
-            }
-        
-            button {
-              border: none;
-            }
-        
-            .container {
-              width: 100%;
-              margin: 3.125rem auto 0 auto;
-            }
-        
-            @media (min-width: 576px) {
-              .container {
-                max-width: 540px;
-              }
-            }
-        
-            @media (min-width: 768px) {
-              .container {
-                max-width: 720px;
-              }
-            }
-        
-            .header {
-              padding: 0 0.625rem;
-              margin-bottom: 1.875rem;
-            }
-        
-            .description {
-              font-style: italic;
-              font-weight: 200;
-              text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-            }
-        
-            .clue {
-              margin-left: 0.25rem;
-              font-size: 0.9rem;
-              color: #e4e4e4;
-            }
-        
-            .text-center {
-              text-align: center;
-            }
-        
-            /* form */
-            form {
-              background: var(--color-darkblue-alpha);
-              padding: 2.5rem 0.625rem;
-              border-radius: 0.25rem;
-            }
-        
-            @media (min-width: 480px) {
-              form {
-                padding: 2.5rem;
-              }
-            }
-        
-            .form-group {
-              margin: 0 auto 1.25rem auto;
-              padding: 0.25rem;
-            }
-        
-            .form-control {
-              display: block;
-              width: 100%;
-              height: 2.375rem;
-              padding: 0.375rem 0.75rem;
-              color: #495057;
-              background-color: #fff;
-              background-clip: padding-box;
-              border: 1px solid #ced4da;
-              border-radius: 0.25rem;
-              transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-            }
-        
-            .form-control:focus {
-              border-color: #80bdff;
-              outline: 0;
-              box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-            }
-        
-            .input-radio,
-            .input-checkbox {
-              display: inline-block;
-              margin-right: 0.625rem;
-              min-height: 1.25rem;
-              min-width: 1.25rem;
-            }
-        
-            .input-textarea {
-              min-height: 120px;
-              width: 100%;
-              padding: 0.625rem;
-              resize: vertical;
-            }
-        
-            .submit-button {
-              display: block;
-              width: 100%;
-              padding: 0.75rem;
-              background: var(--color-green);
-              color: inherit;
-              border-radius: 2px;
-              cursor: pointer;
-            }
-          </style>
-        </head>
-        
-        <body>
-          <div class="container">
-            <header class="header">
-              <h1 id="title" class="text-center">Mock Survey Form</h1>
-              <p id="description" class="description text-center">
-                Thank you for taking the time to help us improve the platform
-              </p>
-            </header>
-            <form id="survey-form">
-              <div class="form-group">
-                <label id="name-label" for="name">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  class="form-control"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label id="email-label" for="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="form-control"
-                  placeholder="Enter your Email"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label id="number-label" for="number"
-                  >Age<span class="clue">(optional)</span></label
-                >
-                <input
-                  type="number"
-                  name="age"
-                  id="number"
-                  min="10"
-                  max="99"
-                  class="form-control"
-                  placeholder="Age"
-                />
-              </div>
-              <div class="form-group">
-                <p>Which option best describes your current role?</p>
-                <select id="dropdown" name="role" class="form-control" required>
-                  <option disabled selected value>Select current role</option>
-                  <option value="student">Student</option>
-                  <option value="job">Full Time Job</option>
-                  <option value="learner">Full Time Learner</option>
-                  <option value="preferNo">Prefer not to say</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-        
-              <div class="form-group">
-                <p>Would you recommend this survey to a friend?</p>
-                <label>
-                  <input
-                    name="user-recommend"
-                    value="definitely"
-                    type="radio"
-                    class="input-radio"
-                    checked
-                  />Definitely</label
-                >
-                <label>
-                  <input
-                    name="user-recommend"
-                    value="maybe"
-                    type="radio"
-                    class="input-radio"
-                  />Maybe</label
-                >
-        
-                <label
-                  ><input
-                    name="user-recommend"
-                    value="not-sure"
-                    type="radio"
-                    class="input-radio"
-                  />Not sure</label
-                >
-              </div>
-        
-              <div class="form-group">
-                <p>
-                  What is your favorite feature of platform?
-                </p>
-                <select id="most-like" name="mostLike" class="form-control" required>
-                  <option disabled selected value>Select an option</option>
-                  <option value="challenges">Challenges</option>
-                  <option value="projects">Projects</option>
-                  <option value="community">Community</option>
-                  <option value="openSource">Open Source</option>
-                </select>
-              </div>
-        
-              <div class="form-group">
-                <p>
-                  What would you like to see improved?
-                  <span class="clue">(Check all that apply)</span>
-                </p>
-        
-                <label
-                  ><input
-                    name="prefer"
-                    value="front-end-projects"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Front-end Projects</label
-                >
-                <label>
-                  <input
-                    name="prefer"
-                    value="back-end-projects"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Back-end Projects</label
-                >
-                <label
-                  ><input
-                    name="prefer"
-                    value="data-visualization"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Data Visualization</label
-                >
-                <label
-                  ><input
-                    name="prefer"
-                    value="challenges"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Challenges</label
-                >
-                <label
-                  ><input
-                    name="prefer"
-                    value="open-source-community"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Open Source Community</label
-                >
-                <label
-                  ><input
-                    name="prefer"
-                    value="gitter-help-rooms"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Gitter help rooms</label
-                >
-                <label
-                  ><input
-                    name="prefer"
-                    value="videos"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Videos</label
-                >
-                <label
-                  ><input
-                    name="prefer"
-                    value="city-meetups"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />City Meetups</label
-                >
-                <label
-                  ><input
-                    name="prefer"
-                    value="wiki"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Wiki</label
-                >
-                <label
-                  ><input
-                    name="prefer"
-                    value="forum"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Forum</label
-                >
-                <label
-                  ><input
-                    name="prefer"
-                    value="additional-courses"
-                    type="checkbox"
-                    class="input-checkbox"
-                  />Additional Courses</label
-                >
-              </div>
-        
-              <div class="form-group">
-                <p>Any comments or suggestions?</p>
-                <textarea
-                  id="comments"
-                  class="input-textarea"
-                  name="comment"
-                  placeholder="Enter your comment here..."
-                ></textarea>
-              </div>
-        
-              <div class="form-group">
-                <button type="submit" id="submit" class="submit-button">
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-          </body>
-          </html>
+        <div id="certificates" class="content">
+            <h2>Certificates</h2>
+            <div class="certificate-gallery">
+                <img src="https://i.postimg.cc/VvBYfrHH/Whats-App-Image-2025-03-19-at-12-31-57-PM.jpg" alt="Certificate 1" class="certificate" onclick="window.open(this.src, '_blank')">
+            </div>
         </div>
 
+        <!-- Hidden clock HTML to be opened in new tab -->
+        <div id="clock-project-html" style="display: none;">
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width">
+              <title>Digital Clock</title>
+              <style>
+                body {
+                  background: #FAFAEB;
+                  font-family: Arial, sans-serif;
+                }
+                #clock {
+                  background-color: #fbeaea;
+                  padding: 20px;
+                  border-radius: 25px;
+                  text-align: center;
+                }
+                #MyClockDisplay {
+                  border: 2px dashed #495563;
+                  padding: 10px;
+                  border-radius: 20px;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translateX(-50%) translateY(-50%);
+                  color: #6d8687;
+                  font-size: 60px;
+                  font-family: Orbitron;
+                  letter-spacing: 7px;
+                }
+                h1, h2 {
+                  text-align: center;
+                  color: #dba399;
+                  margin: 20px;
+                  font-family: 'Roboto', sans-serif;
+                  font-weight: 100;
+                  font-size: 70px;
+                  text-transform: uppercase;
+                }
+              </style>
+            </head>
+            <body>
+              <div id="clock">
+                <h1>Digital Clock</h1>
+                <h2>(12-Hour Pattern)</h2>
+                <div id="MyClockDisplay"></div>
+              </div> 
+              <script>
+                function showTime() {
+                  var date = new Date();
+                  var h = date.getHours(); // 0 - 23
+                  var m = date.getMinutes(); // 0 - 59
+                  var s = date.getSeconds(); // 0 - 59
+                  var session = "AM";
+                  if (h == 0) {
+                    h = 12;
+                  }
+                  if (h > 12) {
+                    h = h - 12;
+                    session = "PM";
+                  }
+                  h = (h < 10) ? "0" + h : h;
+                  m = (m < 10) ? "0" + m : m;
+                  s = (s < 10) ? "0" + s : s;
+                  var time = h + ":" + m + ":" + s + " " + session;
+                  document.getElementById("MyClockDisplay").innerText = time;
+                  setTimeout(showTime, 1000);
+                }
+                showTime();
+              </script>
+            </body>
+            </html>
+        </div>
+
+        <!-- Hidden stopwatch HTML to be opened in new tab -->
+        <div id="stopwatch-project-html" style="display: none;">
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width">
+              <title>Stopwatch</title>
+              <style>
+                body {
+                  background: aqua;
+                  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                }
+                .wrapper {
+                  color: white;
+                  text-align: center;
+                  position: absolute;
+                  top: 20%;
+                  left: 25%;
+                }
+                h1 {
+                  font-family: 'Roboto', sans-serif;
+                  font-weight: 100;
+                  font-size: 54px;
+                  text-transform: uppercase;
+                }
+                #time {
+                  letter-spacing: 7px;
+                  font-size: 70px;
+                  font-weight: bold;
+                  margin: 0;
+                  margin-top: 24px;
+                  margin-bottom: 24px;
+                }
+                button {
+                  cursor: pointer;
+                  font-size: 16px;
+                  padding: 18px 10px;
+                  margin: 10px;
+                  width: 180px;
+                  background: rgb(22, 171, 230);
+                  color: white;
+                  border: solid 2px white;
+                  box-shadow: 5px 5px 5px rgb(180, 177, 177);
+                  border-radius: 5px;
+                }
+                button:hover {
+                  background: white;
+                  border: solid 2px rgb(22, 171, 230);
+                  color: skyblue;
+                }
+              </style>
+            </head>
+            <body>
+              <div class="wrapper">
+                <h1>Stopwatch</h1>
+                <h2 id="time">00:00:00</h2>
+                <button id="button-start">Start</button>
+                <button id="button-stop">Stop</button>
+                <button id="button-reset">Reset</button>
+              </div>
+              <script>
+                var milli_seconds = 0, seconds = 0, minutes = 0;
+                var h1 = document.getElementById('time')
+                start = document.getElementById('button-start'),
+                stop = document.getElementById('button-stop'),
+                clear = document.getElementById('button-reset');
+                var interval = 1;
+                function count() {
+                  interval = 1;
+                  milli_seconds += interval;
+                  if (milli_seconds >= 100) {
+                    milli_seconds = 0;
+                    seconds += interval;
+                  }
+                  if (seconds >= 60) {
+                    seconds = 0;
+                    minutes += interval;
+                  }
+                  h1.textContent = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds ? (seconds > 9 ? seconds : "0" + seconds) : "00") + ":" + (milli_seconds > 9 ? milli_seconds : "0" + milli_seconds);
+                  timer();
+                }
+                function timer() {
+                  t = setTimeout(count, 10);
+                }
+                /* Start button */
+                start.onclick = count;
+                /* Stop button */
+                stop.onclick = function() {
+                  clearTimeout(t);
+                }
+                /* Clear button */
+                clear.onclick = function() {
+                  h1.textContent = "00:00:00";
+                  seconds = 0;
+                  minutes = 0;
+                  milli_seconds = 0;
+                  interval = 0;
+                }
+              </script>
+            </body>
+            </html>
+        </div>
+
+        <div id="SurveyForm-project-html" style="display: none;">
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width">
+              <title>Mock Survey form</title>
+              <style>
+                @import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+            
+                :root {
+                  --color-white: #f3f3f3;
+                  --color-darkblue: #1b1b32;
+                  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+                  --color-green: #37af65;
+                }
+            
+                *,
+                *::before,
+                *::after {
+                  box-sizing: border-box;
+                }
+            
+                body {
+                  font-family: 'Poppins', sans-serif;
+                  font-size: 1rem;
+                  font-weight: 400;
+                  line-height: 1.4;
+                  color: var(--color-white);
+                  margin: 0;
+                }
+            
+                /* mobile friendly alternative to using background-attachment: fixed */
+                body::before {
+                  content: '';
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  height: 100%;
+                  width: 100%;
+                  z-index: -1;
+                  background: var(--color-darkblue);
+                  background-image: linear-gradient(
+                      115deg,
+                      rgba(58, 58, 158, 0.8),
+                      rgba(136, 136, 206, 0.7)
+                    ),
+                    url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                }
+            
+                h1 {
+                  font-weight: 400;
+                  line-height: 1.2;
+                }
+            
+                p {
+                  font-size: 1.125rem;
+                }
+            
+                h1,
+                p {
+                  margin-top: 0;
+                  margin-bottom: 0.5rem;
+                }
+            
+                label {
+                  display: flex;
+                  align-items: center;
+                  font-size: 1.125rem;
+                  margin-bottom: 0.5rem;
+                }
+            
+                input,
+                button,
+                select,
+                textarea {
+                  margin: 0;
+                  font-family: inherit;
+                  font-size: inherit;
+                  line-height: inherit;
+                }
+            
+                button {
+                  border: none;
+                }
+            
+                .container {
+                  width: 100%;
+                  margin: 3.125rem auto 0 auto;
+                }
+            
+                @media (min-width: 576px) {
+                  .container {
+                    max-width: 540px;
+                  }
+                }
+            
+                @media (min-width: 768px) {
+                  .container {
+                    max-width: 720px;
+                  }
+                }
+            
+                .header {
+                  padding: 0 0.625rem;
+                  margin-bottom: 1.875rem;
+                }
+            
+                .description {
+                  font-style: italic;
+                  font-weight: 200;
+                  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+                }
+            
+                .clue {
+                  margin-left: 0.25rem;
+                  font-size: 0.9rem;
+                  color: #e4e4e4;
+                }
+            
+                .text-center {
+                  text-align: center;
+                }
+            
+                /* form */
+                form {
+                  background: var(--color-darkblue-alpha);
+                  padding: 2.5rem 0.625rem;
+                  border-radius: 0.25rem;
+                }
+            
+                @media (min-width: 480px) {
+                  form {
+                    padding: 2.5rem;
+                  }
+                }
+            
+                .form-group {
+                  margin: 0 auto 1.25rem auto;
+                  padding: 0.25rem;
+                }
+            
+                .form-control {
+                  display: block;
+                  width: 100%;
+                  height: 2.375rem;
+                  padding: 0.375rem 0.75rem;
+                  color: #495057;
+                  background-color: #fff;
+                  background-clip: padding-box;
+                  border: 1px solid #ced4da;
+                  border-radius: 0.25rem;
+                  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                }
+            
+                .form-control:focus {
+                  border-color: #80bdff;
+                  outline: 0;
+                  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                }
+            
+                .input-radio,
+                .input-checkbox {
+                  display: inline-block;
+                  margin-right: 0.625rem;
+                  min-height: 1.25rem;
+                  min-width: 1.25rem;
+                }
+            
+                .input-textarea {
+                  min-height: 120px;
+                  width: 100%;
+                  padding: 0.625rem;
+                  resize: vertical;
+                }
+            
+                .submit-button {
+                  display: block;
+                  width: 100%;
+                  padding: 0.75rem;
+                  background: var(--color-green);
+                  color: inherit;
+                  border-radius: 2px;
+                  cursor: pointer;
+                }
+              </style>
+            </head>
+            
+            <body>
+              <div class="container">
+                <header class="header">
+                  <h1 id="title" class="text-center">Mock Survey Form</h1>
+                  <p id="description" class="description text-center">
+                    Thank you for taking the time to help us improve the platform
+                  </p>
+                </header>
+                <form id="survey-form">
+                  <div class="form-group">
+                    <label id="name-label" for="name">Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      class="form-control"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label id="email-label" for="email">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      class="form-control"
+                      placeholder="Enter your Email"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label id="number-label" for="number"
+                      >Age<span class="clue">(optional)</span></label
+                    >
+                    <input
+                      type="number"
+                      name="age"
+                      id="number"
+                      min="10"
+                      max="99"
+                      class="form-control"
+                      placeholder="Age"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <p>Which option best describes your current role?</p>
+                    <select id="dropdown" name="role" class="form-control" required>
+                      <option disabled selected value>Select current role</option>
+                      <option value="student">Student</option>
+                      <option value="job">Full Time Job</option>
+                      <option value="learner">Full Time Learner</option>
+                      <option value="preferNo">Prefer not to say</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+        
+                  <div class="form-group">
+                    <p>Would you recommend this survey to a friend?</p>
+                    <label>
+                      <input
+                        name="user-recommend"
+                        value="definitely"
+                        type="radio"
+                        class="input-radio"
+                        checked
+                      />Definitely</label
+                    >
+                    <label>
+                      <input
+                        name="user-recommend"
+                        value="maybe"
+                        type="radio"
+                        class="input-radio"
+                      />Maybe</label
+                    >
+        
+                    <label
+                      ><input
+                        name="user-recommend"
+                        value="not-sure"
+                        type="radio"
+                        class="input-radio"
+                      />Not sure</label
+                    >
+                  </div>
+        
+                  <div class="form-group">
+                    <p>
+                      What is your favorite feature of platform?
+                    </p>
+                    <select id="most-like" name="mostLike" class="form-control" required>
+                      <option disabled selected value>Select an option</option>
+                      <option value="challenges">Challenges</option>
+                      <option value="projects">Projects</option>
+                      <option value="community">Community</option>
+                      <option value="openSource">Open Source</option>
+                    </select>
+                  </div>
+        
+                  <div class="form-group">
+                    <p>
+                      What would you like to see improved?
+                      <span class="clue">(Check all that apply)</span>
+                    </p>
+        
+                    <label
+                      ><input
+                        name="prefer"
+                        value="front-end-projects"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Front-end Projects</label
+                    >
+                    <label>
+                      <input
+                        name="prefer"
+                        value="back-end-projects"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Back-end Projects</label
+                    >
+                    <label
+                      ><input
+                        name="prefer"
+                        value="data-visualization"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Data Visualization</label
+                    >
+                    <label
+                      ><input
+                        name="prefer"
+                        value="challenges"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Challenges</label
+                    >
+                    <label
+                      ><input
+                        name="prefer"
+                        value="open-source-community"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Open Source Community</label
+                    >
+                    <label
+                      ><input
+                        name="prefer"
+                        value="gitter-help-rooms"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Gitter help rooms</label
+                    >
+                    <label
+                      ><input
+                        name="prefer"
+                        value="videos"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Videos</label
+                    >
+                    <label
+                      ><input
+                        name="prefer"
+                        value="city-meetups"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />City Meetups</label
+                    >
+                    <label
+                      ><input
+                        name="prefer"
+                        value="wiki"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Wiki</label
+                    >
+                    <label
+                      ><input
+                        name="prefer"
+                        value="forum"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Forum</label
+                    >
+                    <label
+                      ><input
+                        name="prefer"
+                        value="additional-courses"
+                        type="checkbox"
+                        class="input-checkbox"
+                      />Additional Courses</label
+                    >
+                  </div>
+        
+                  <div class="form-group">
+                    <p>Any comments or suggestions?</p>
+                    <textarea
+                      id="comments"
+                      class="input-textarea"
+                      name="comment"
+                      placeholder="Enter your comment here..."
+                    ></textarea>
+                  </div>
+        
+                  <div class="form-group">
+                    <button type="submit" id="submit" class="submit-button">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </body>
+            </html>
+        </div>
 
     <script>
         function openTab(tabName) {
@@ -988,7 +982,7 @@
             // Add active class to current tab button (optional)
             let buttons = document.getElementsByClassName("tab-button");
             for (let i = 0; i < buttons.length; i++) {
-                buttons[i].style.background = "#1f6feb";
+ buttons[i].style.background = "#1f6feb";
             }
             event.currentTarget.style.background = "#58a6ff";
         }
@@ -1008,6 +1002,8 @@
             newTab.document.write(stopwatchHTML);
             newTab.document.close();
         }
+        
+        // Function to open survey form project in new tab
         function openSurveyFormProject() {
             const surveyFormHTML = document.getElementById('SurveyForm-project-html').innerHTML;
             const newTab = window.open('', '_blank');
@@ -1019,9 +1015,12 @@
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("about").classList.add("active");
         });
+
+        function showSections() {
+            openTab('about');
+            openTab('education');
+            openTab('projects');
+        }
     </script>
-
-
-
 </body>
 </html>
