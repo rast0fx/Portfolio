@@ -288,7 +288,7 @@
     <header>
         <img src="https://i.postimg.cc/MKZKcFYP/9774847c-a933-4b75-a008-92dfaafe2971.jpg" alt="Mhamad Koussa" class="profile-pic">
         <div class="header-text">
-            <h1>&copy; 2025 Mhamad Koussa | Portfolio</h1>
+            <h3>&copy; 2025 Mhamad Koussa | Portfolio</h3>
             <p><i>IT Student/Enthusiast • Beginner Web Developer</i></p>
         </div>
     
@@ -297,16 +297,34 @@
             <button class="tab-button" onclick="openTab('about')">About Me</button>
             <button class="tab-button" onclick="openTab('education')">Education</button>
             <button class="tab-button" onclick="openTab('projects')">Mini Projects</button>
-            <button class="tab-button" onclick="openTab('certificates')">Certificates</button>
-            <button class="tab-button" onclick="openTab('socials')">Connect</button>
             <button class="tab-button" onclick="openTab('SurveyForm')">Other Projects</button>
+            <button class="tab-button" onclick="openTab('certificates')">Certificates</button>
         </div>
         
         <div id="about" class="content active">
             <h2>About Me</h2>
             <p>Hey there! I'm Mhamad Koussa, a 15-year-old IT student and web development enthusiast. I'm passionate about creating beautiful, functional websites and continuously expanding my knowledge in information technology.</p>
             <p>I enjoy learning new programming languages and frameworks, solving problems, and building projects that challenge my skills.</p>
+            <div id="socials" class="content">
+              <h2>Connect With Me</h2>
+              
         </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/mk0uss4/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram social-icon instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@mk0uss4" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok social-icon tiktok"></i>
+          </a>
+          <a href="https://discordapp.com/users/954061819952132106" target="_blank" aria-label="Discord">
+              <i class="fab fa-discord social-icon discord"></i>
+          </a>
+          <a href="https://wa.me/96176077021" target="_blank" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp social-icon whatsapp"></i>
+          </a>
+      </div>
+    </div>
+    </div> 
         
         <div id="education" class="content">
             <h2>Education Experience</h2>
@@ -351,24 +369,7 @@
             </div>
         </div>
         
-        <div id="socials" class="content">
-            <h2>Connect With Me</h2>
-            <div class="social-links">
-                <a href="https://www.instagram.com/mk0uss4/" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram social-icon instagram"></i>
-                </a>
-                <a href="https://www.tiktok.com/@mk0uss4" target="_blank" aria-label="TikTok">
-                    <i class="fab fa-tiktok social-icon tiktok"></i>
-                </a>
-                <a href="https://discordapp.com/users/954061819952132106" target="_blank" aria-label="Discord">
-                    <i class="fab fa-discord social-icon discord"></i>
-                </a>
-                <a href="https://wa.me/96176077021" target="_blank" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp social-icon whatsapp"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+        
 
     <div id="SurveyForm" class="content">
       
@@ -1019,6 +1020,7 @@
             document.getElementById("about").classList.add("active");
         });
     </script>
+
 
 
 </body>
