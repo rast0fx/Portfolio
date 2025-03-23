@@ -748,12 +748,12 @@
     </style>
 </head>
 <body>
-    <div class="watermark"> Made by Mhamad Koussa (rast0fx)</div>
-    <nav class="navbar">
+    <div class="watermark">Made by Mhamad Koussa (rast0fx)</div>
+    <nav class="navbar" style="display: none;">
         <a href="#" class="navbar-logo" onclick="showSections()">
             <div class="logo-content">
                 <img src="https://i.postimg.cc/MKZKcFYP/9774847c-a933-4b75-a008-92dfaafe2971.jpg" alt="Mhamad Koussa">
-                <span> <b> Mhamad Koussa (rast0fx) </b> <br> IT Student/Enthusiast • Beginner Web Developer <br> Click here to view my projects</span>
+                <span>© 2025 Mhamad Koussa <br> IT Student/Enthusiast • Beginner Web Developer <br> Click here to view my projects</span>
             </div>
         </a>
         <div class="navbar-links">
@@ -765,7 +765,15 @@
     </nav>
 
     <div class="container">
-        <div id="about" class="content active">
+        <div id="landing" class="content active" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 2rem;">
+            <img src="https://i.postimg.cc/MKZKcFYP/9774847c-a933-4b75-a008-92dfaafe2971.jpg" alt="Mhamad Koussa" class="profile-pic" style="width: 200px; height: 200px; margin-bottom: 2rem;">
+            <h2 style="font-size: 3rem; margin-bottom: 1rem;">Welcome to My Portfolio</h2>
+            <h3 style="font-size: 1.2rem; margin-bottom: 2rem; color: #94a3b8;">Mhamad Koussa (rast0fx)</h3>
+            <h4 style="font-size: 1.2rem; margin-bottom: 2rem; color: #94a3b8;">IT Student & Web Development Enthusiast</h4>
+            <button onclick="enterPortfolio()" class="enter-button" style="padding: 1rem 2rem; font-size: 1.2rem; background: linear-gradient(45deg, #818cf8, #6366f1); color: white; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);">Enter Portfolio</button>
+        </div>
+
+        <div id="about" class="content">
             <h2>About Me</h2>
             <p>Hey there! I'm Mhamad Koussa, a 15-year-old IT student and web development enthusiast. I'm passionate about creating beautiful, functional websites and continuously expanding my knowledge in information technology.</p>
             <p>I enjoy learning new programming languages and frameworks, solving problems, and building projects that challenge my skills.</p>
@@ -2075,22 +2083,14 @@
 
                 <script>
                     function enterPortfolio() {
-                        showSection('about');
+                        // Hide landing page
+                        document.getElementById('landing').style.display = 'none';
                         
-                        const sidebar = document.querySelector('.sidebar');
-                        const mainContent = document.querySelector('.main-content');
-                        const showButton = document.querySelector('.show-sidebar-button');
+                        // Show navbar
+                        document.querySelector('.navbar').style.display = 'flex';
                         
-                        sidebar.classList.remove('hidden');
-                        mainContent.classList.remove('expanded');
-                        showButton.classList.remove('visible');
-                        
-                        document.querySelectorAll('.nav-links a').forEach(link => {
-                            link.classList.remove('active');
-                            if (link.textContent === 'About Me') {
-                                link.classList.add('active');
-                            }
-                        });
+                        // Show about section
+                        openTab('about');
                     }
 
                     function showSection(sectionId) {
@@ -2185,9 +2185,9 @@
             }
         }
 
-        // Show instruction text when page loads
+        // Show landing page when page loads
         document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("about").classList.add("active");
+            document.getElementById("landing").classList.add("active");
         });
 
         function showSections() {
