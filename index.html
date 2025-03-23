@@ -690,15 +690,17 @@
             }
 
             .nav-links {
-                flex-direction: row;
-                justify-content: center;
+                flex-direction: column;
                 width: 100%;
                 gap: 0.5rem;
             }
 
             .nav-links a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
+                text-align: center;
+            }
+
+            .show-sidebar-button {
+                margin: 0 0 1rem 0;
             }
         }
 
@@ -728,9 +730,24 @@
                 transform: translateX(-50%) translateY(-10px);
             }
         }
+
+        /* Add watermark styles */
+        .watermark {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 5px 10px;
+            background: linear-gradient(90deg, #040811, rgba(4, 8, 17, 0.8));
+            color: #e2e8f0;
+            font-size: 0.8rem;
+            z-index: 1000;
+            border-top-right-radius: 8px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
+    <div class="watermark">Made by Mhamad Koussa (rast0fx)</div>
     <nav class="navbar">
         <a href="#" class="navbar-logo" onclick="showSections()">
             <div class="logo-content">
