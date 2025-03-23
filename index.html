@@ -111,8 +111,8 @@
         }
 
         .landing-logo {
-            width: 400px;
-            height: 400px;
+            width: 499px;
+            height: 470px;
             margin-bottom: 4rem;
             animation: float 4s ease-in-out infinite;
             filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.6));
@@ -781,11 +781,11 @@
         }
 
         /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
             background: rgba(30, 41, 59, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
@@ -798,8 +798,8 @@
             transition: transform 0.3s ease;
         }
 
-        .navbar.show {
-            transform: translateY(0);
+        .navbar.hide {
+            transform: translateY(-100%);
         }
 
         .navbar-brand {
@@ -810,6 +810,11 @@
             text-decoration: none;
             font-size: 1.25rem;
             font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: translateY(-2px);
         }
 
         .navbar-brand img {
@@ -843,12 +848,30 @@
             padding: 0.5rem 1rem;
             border-radius: var(--border-radius);
             background: transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-link:hover,
         .nav-link.active {
             color: var(--accent);
-            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 80%;
         }
 
         .nav-toggle {
@@ -859,6 +882,11 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            transform: scale(1.1);
         }
 
         @media (max-width: 768px) {
@@ -881,16 +909,25 @@
                 flex-direction: column;
                 gap: 1rem;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-10px);
+                opacity: 0;
+                transition: all 0.3s ease;
             }
 
             .navbar-links.show {
                 display: flex;
+                transform: translateY(0);
+                opacity: 1;
             }
 
             .nav-link {
                 width: 100%;
                 text-align: center;
-                padding: 0.5rem;
+                padding: 0.75rem;
+            }
+
+            .nav-link::after {
+                display: none;
             }
         }
 
@@ -951,7 +988,7 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem;
+                padding: 1rem;
             background: rgba(59, 130, 246, 0.1);
             border-radius: var(--border-radius);
             transition: transform 0.3s ease;
@@ -1183,6 +1220,47 @@
                 max-width: 100%;
             }
         }
+
+        /* Add navbar toggle button styles */
+        .nav-toggle-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: var(--accent);
+            color: var(--text-primary);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .nav-toggle-btn.visible {
+            opacity: 1;
+                transform: translateY(0);
+            }
+
+        .nav-toggle-btn:hover {
+            background: var(--accent-dark);
+            transform: scale(1.1);
+        }
+
+        .nav-toggle-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .nav-toggle-btn.active i {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body>
@@ -1225,7 +1303,7 @@
             <div class="about-content">
                 <div class="about-card">
                     <p class="about-text">Hey there! I'm Mhamad Koussa, a 15-year-old IT student and web development enthusiast. I'm passionate about creating beautiful, functional websites and continuously expanding my knowledge in information technology.</p>
-                    <p class="about-text">I enjoy learning new programming languages and frameworks, solving problems, and building projects that challenge my skills. My focus is on frontend development, where I can combine my love for design with technical implementation.</p>
+                    <p class="about-text">I enjoy learning new programming languages and frameworks, solving problems, and building projects that challenge my skills. My focus is on frontend development, where I can combine my love for design with technical implementation. I also love playing some video games from time to time.</p>
                 </div>
             </div>
         </section>
@@ -1332,9 +1410,9 @@
             <h2 class="section-title">Interests & Hobbies</h2>
             <div class="interests-grid">
                 <div class="interest-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Programming</h3>
-                    <p>I love solving coding challenges and building new projects to enhance my frontend development skills. Always eager to learn new technologies and frameworks.</p>
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Gaming</h3>
+                    <p>I love playing video games such as Roblox, GTA, etc. Some of my Roblox Experience may be found <a href="https://rast0fx.github.io/experience/#about" target="_blank" class="interest-link"><font color="cyan">here</font></a>.</p>
                 </div>
                 <div class="interest-card">
                     <i class="fas fa-paint-brush"></i>
@@ -1420,7 +1498,7 @@
 
         <!-- Add Contact Us section before the end of main-content -->
         <section class="section" id="contact">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title">Connect With Me</h2>
             <div class="contact-content">
                 <div class="contact-details">
                     <div class="contact-item">
@@ -1435,13 +1513,6 @@
                         <div class="contact-item-content">
                             <h3>Email</h3>
                             <a href="mailto:rastosiafox@gmail.com">rastosiafox@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div class="contact-item-content">
-                            <h3>Phone</h3>
-                            <a href="tel:+96176077021">+961 76 077 021</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1473,10 +1544,6 @@
                         <a href="https://discordapp.com/users/954061819952132106" target="_blank" class="social-link">
                             <i class="fab fa-discord"></i>
                             <span>Discord</span>
-                        </a>
-                        <a href="https://wa.me/96176077021" target="_blank" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>WhatsApp</span>
                         </a>
                         <a href="https://github.com/rast0fx" target="_blank" class="social-link">
                             <i class="fab fa-github"></i>
@@ -1583,6 +1650,11 @@
             </a>
         </div>
     </nav>
+
+    <!-- Add navbar toggle button before closing body tag -->
+    <button class="nav-toggle-btn" onclick="toggleNavbar()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script>
         // Modal Functions
@@ -1767,48 +1839,75 @@
             const navLinks = document.querySelector('.navbar-links');
             const navToggle = document.querySelector('.nav-toggle i');
             
-            navbar.classList.toggle('show');
             navLinks.classList.toggle('show');
             navToggle.classList.toggle('fa-bars');
             navToggle.classList.toggle('fa-times');
-        }
-
-        // Show navbar on scroll up, hide on scroll down
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            const currentScroll = window.pageYOffset;
             
-            if (currentScroll <= 0) {
-                navbar.classList.remove('show');
-            } else if (currentScroll > lastScroll && !navbar.classList.contains('show')) {
-                navbar.classList.add('show');
-            } else if (currentScroll < lastScroll && navbar.classList.contains('show')) {
-                navbar.classList.remove('show');
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Update active nav link on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const scrollPosition = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    const sectionId = section.getAttribute('id');
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function closeMenu(e) {
+                if (!navbar.contains(e.target) && navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                    navToggle.classList.remove('fa-times');
+                    navToggle.classList.add('fa-bars');
+                    document.removeEventListener('click', closeMenu);
                 }
             });
+        }
+
+        // Add navbar toggle functionality
+        let isNavbarVisible = true;
+        let lastScrollY = window.scrollY;
+        let scrollTimeout;
+
+        function toggleNavbar() {
+            const navbar = document.querySelector('.navbar');
+            const toggleBtn = document.querySelector('.nav-toggle-btn');
+            
+            isNavbarVisible = !isNavbarVisible;
+            navbar.classList.toggle('hide');
+            toggleBtn.classList.toggle('active');
+        }
+
+        // Improved navbar scroll behavior
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const toggleBtn = document.querySelector('.nav-toggle-btn');
+            const currentScrollY = window.scrollY;
+            
+            // Show/hide toggle button based on scroll position
+            if (currentScrollY > 100) {
+                toggleBtn.classList.add('visible');
+            } else {
+                toggleBtn.classList.remove('visible');
+            }
+            
+            // Clear the timeout
+            clearTimeout(scrollTimeout);
+            
+            // Show navbar at the top of the page
+            if (currentScrollY <= 0) {
+                navbar.classList.remove('hide');
+                isNavbarVisible = true;
+            } 
+            // Hide navbar when scrolling down
+            else if (currentScrollY > lastScrollY && !navbar.classList.contains('hide')) {
+                navbar.classList.add('hide');
+                isNavbarVisible = false;
+            } 
+            // Show navbar when scrolling up
+            else if (currentScrollY < lastScrollY && navbar.classList.contains('hide')) {
+                navbar.classList.remove('hide');
+                isNavbarVisible = true;
+            }
+            
+            // Set a timeout to show navbar when scrolling stops
+            scrollTimeout = setTimeout(() => {
+                if (currentScrollY > 0 && isNavbarVisible) {
+                    navbar.classList.remove('hide');
+                }
+            }, 150);
+            
+            lastScrollY = currentScrollY;
         });
 
         function enterWebsite() {
