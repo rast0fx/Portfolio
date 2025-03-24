@@ -271,15 +271,35 @@
             transform: translateY(0);
             border: 1px solid var(--border-color);
             backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .section:last-child {
-            margin-bottom: 2rem;
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .section:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .section:hover::before {
+            opacity: 1;
+        }
+
+        .section:last-child {
+            margin-bottom: 2rem;
         }
 
         .section-title {
@@ -289,6 +309,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
         }
 
         .section-title::after {
@@ -300,6 +322,19 @@
             margin: 1.5rem auto;
             border-radius: 2px;
             animation: glow 2s infinite;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.5;
         }
 
         /* About and Education Section Styles */
@@ -312,6 +347,20 @@
             padding: 2.5rem;
             border-radius: var(--border-radius);
             border: 1px solid rgba(74, 144, 226, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content::before,
+        .education-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(74, 144, 226, 0.05), transparent 60%);
+            pointer-events: none;
         }
 
         .about-card,
@@ -322,6 +371,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(74, 144, 226, 0.1);
         }
 
         .about-card::before,
@@ -334,12 +384,19 @@
             height: 100%;
             background: var(--accent);
             opacity: 0.5;
+            transition: opacity 0.3s ease;
         }
 
         .about-card:hover,
         .education-card:hover {
             transform: translateX(10px);
             background: rgba(74, 144, 226, 0.1);
+            border-color: rgba(74, 144, 226, 0.2);
+        }
+
+        .about-card:hover::before,
+        .education-card:hover::before {
+            opacity: 1;
         }
 
         .about-text,
@@ -348,6 +405,9 @@
             line-height: 1.8;
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 2px solid rgba(74, 144, 226, 0.2);
         }
 
         .about-text:last-child,
@@ -360,17 +420,48 @@
             align-items: center;
             gap: 1rem;
             margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+
+        .education-institute:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateX(5px);
         }
 
         .education-institute i {
             font-size: 1.5rem;
             color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .education-institute:hover i {
+            transform: scale(1.2);
         }
 
         .institute-details h3 {
             color: var(--text-primary);
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .institute-details h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .education-institute:hover .institute-details h3::after {
+            width: 100%;
         }
 
         .institute-details p {
@@ -383,11 +474,27 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .education-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
         }
 
         .education-link:hover {
             color: var(--accent-dark);
-            text-decoration: underline;
+        }
+
+        .education-link:hover::after {
+            width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -404,6 +511,10 @@
             .about-text,
             .education-text {
                 font-size: 1rem;
+            }
+
+            .education-institute {
+                padding: 0.8rem;
             }
         }
 
@@ -1618,6 +1729,221 @@
         .bmi-calculator .project-btn {
             margin: 1rem 0;
         }
+
+        /* Add Rating Styles */
+        .rating-section {
+            margin-top: 3rem;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rating-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .rating-title {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(45deg, var(--accent), var(--accent-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rating-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+            animation: glow 2s infinite;
+        }
+
+        .rating-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
+        }
+
+        .rating-stars {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(74, 144, 226, 0.05);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(74, 144, 226, 0.1);
+        }
+
+        .rating-stars input {
+            display: none;
+        }
+
+        .rating-stars label {
+            cursor: pointer;
+            font-size: 2.5rem;
+            color: #ddd;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        .rating-stars label:hover,
+        .rating-stars label:hover ~ label,
+        .rating-stars input:checked ~ label {
+            color: #ffd700;
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .rating-stars label i {
+            transition: transform 0.3s ease;
+        }
+
+        .rating-stars label:hover i,
+        .rating-stars input:checked ~ label i {
+            transform: scale(1.2);
+        }
+
+        .rating-form .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .rating-form .form-label {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .rating-form .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .rating-form .form-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+            outline: none;
+        }
+
+        .rating-form textarea.form-input {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .rating-form .project-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            background: linear-gradient(45deg, var(--accent), var(--accent-dark));
+            border: none;
+            border-radius: var(--border-radius);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .rating-form .project-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        }
+
+        .rating-form .project-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .rating-section {
+                padding: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .rating-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .rating-form {
+                padding: 1.5rem;
+            }
+
+            .rating-stars {
+                gap: 0.5rem;
+                padding: 0.8rem;
+            }
+
+            .rating-stars label {
+                font-size: 2rem;
+                padding: 0.4rem;
+            }
+
+            .rating-form .form-label {
+                font-size: 1rem;
+            }
+
+            .rating-form .form-input {
+                padding: 0.8rem;
+                font-size: 0.95rem;
+            }
+
+            .rating-form .project-btn {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rating-section {
+                padding: 1rem;
+            }
+
+            .rating-form {
+                padding: 1rem;
+            }
+
+            .rating-stars label {
+                font-size: 1.8rem;
+            }
+
+            .rating-form .form-label {
+                font-size: 0.95rem;
+            }
+
+            .rating-form .form-input {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1768,7 +2094,7 @@
                 <div class="interest-card">
                     <i class="fas fa-gamepad"></i>
                     <h3>Gaming</h3>
-                    <p>I love playing video games such as Roblox, GTA, etc. Some of my Roblox Experience may be found <a href="https://rast0fx.github.io/experience/#about" target="_blank" class="interest-link"><font color="cyan">here</font></a>.</p>
+                    <p>I love playing video games such as Roblox, GTA, etc.</p>
                 </div>
                 <div class="interest-card">
                     <i class="fas fa-paint-brush"></i>
@@ -1913,6 +2239,49 @@
                         </a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Add Rating Form -->
+            <div class="rating-section">
+                <h3 class="rating-title">Rate Us</h3>
+                <form action="https://formsubmit.co/rastosiafox@gmail.com" method="POST" class="rating-form">
+                    <input type="hidden" name="_subject" value="New Website Rating">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://rast0fx.github.io/leaderportfolio/">
+                    
+                    <div class="form-group">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" name="name" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Your Email</label>
+                        <input type="email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Rating</label>
+                        <div class="rating-stars">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1"><i class="fas fa-star"></i></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Feedback</label>
+                        <textarea name="message" class="form-input" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="project-btn">Submit Rating</button>
+                </form>
             </div>
         </section>
     </main>
