@@ -2,23 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4a90e2">
+    <meta name="description" content="Mhamad Koussa (rast0fx) - Portfolio Website">
     <title>Mhamad Koussa - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Core Styles */
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #3b82f6;
-            --accent-dark: #2563eb;
-            --card-bg: #1e293b;
-            --border-radius: 12px;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-primary: #2c3e50;
+            --text-secondary: #6c757d;
+            --accent: #4a90e2;
+            --accent-dark: #357abd;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --border-color: rgba(44, 62, 80, 0.1);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
             --transition: 0.3s ease;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
         * {
@@ -38,6 +43,27 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: url('https://i.postimg.cc/HsdkHPmj/5559852.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         /* Animations */
@@ -76,11 +102,13 @@
         /* Landing Page */
         .landing {
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+            backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
             z-index: 9999;
@@ -94,8 +122,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 60%),
-                radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.2) 0%, transparent 60%);
+                radial-gradient(circle at 30% 30%, rgba(231, 76, 60, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(231, 76, 60, 0.1) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -115,11 +143,11 @@
             height: 470px;
             margin-bottom: 4rem;
             animation: float 4s ease-in-out infinite;
-            filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.6));
+            filter: drop-shadow(0 0 40px rgba(74, 144, 226, 0.6));
             border-radius: 50%;
             border: 6px solid var(--accent);
             padding: 20px;
-            background: rgba(59, 130, 246, 0.15);
+            background: rgba(74, 144, 226, 0.15);
             transition: all 0.4s ease;
             position: relative;
         }
@@ -132,22 +160,22 @@
             right: -10px;
             bottom: -10px;
             border-radius: 50%;
-            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.2), transparent 70%);
+            background: radial-gradient(circle at center, rgba(74, 144, 226, 0.2), transparent 70%);
             z-index: -1;
             animation: pulse 3s ease-in-out infinite;
         }
 
         .landing-logo:hover {
             transform: scale(1.05) rotate(5deg);
-            filter: drop-shadow(0 0 50px rgba(59, 130, 246, 0.8));
-            border-color: #60a5fa;
-            background: rgba(59, 130, 246, 0.2);
+            filter: drop-shadow(0 0 50px rgba(74, 144, 226, 0.8));
+            border-color: #5a9fe2;
+            background: rgba(74, 144, 226, 0.2);
         }
 
         .landing h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--accent), #60a5fa);
+            background: linear-gradient(45deg, var(--accent), var(--accent-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
@@ -164,7 +192,7 @@
 
         .enter-btn {
             background: linear-gradient(45deg, var(--accent), var(--accent-dark));
-            color: var(--text-primary);
+            color: white;
             padding: 1.2rem 3rem;
             border: none;
             border-radius: 50px;
@@ -175,7 +203,7 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
         }
 
         .enter-btn::before {
@@ -191,7 +219,7 @@
 
         .enter-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
         }
 
         .enter-btn:hover::before {
@@ -241,6 +269,8 @@
             margin-bottom: 4rem;
             box-shadow: var(--shadow);
             transform: translateY(0);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
         }
 
         .section:last-child {
@@ -255,7 +285,7 @@
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            background: linear-gradient(45deg, var(--accent), #60a5fa);
+            background: linear-gradient(45deg, var(--accent), var(--accent-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-align: center;
@@ -281,12 +311,12 @@
             background: var(--bg-primary);
             padding: 2.5rem;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(74, 144, 226, 0.1);
         }
 
         .about-card,
         .education-card {
-            background: rgba(59, 130, 246, 0.05);
+            background: rgba(74, 144, 226, 0.05);
             padding: 2rem;
             border-radius: var(--border-radius);
             transition: all 0.3s ease;
@@ -309,7 +339,7 @@
         .about-card:hover,
         .education-card:hover {
             transform: translateX(10px);
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(74, 144, 226, 0.1);
         }
 
         .about-text,
@@ -379,10 +409,11 @@
 
         /* Social Links */
         .social-links-container {
-            background: var(--bg-primary);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
             width: 100%;
         }
 
@@ -416,13 +447,15 @@
             color: var(--text-secondary);
             padding: 1rem;
             border-radius: var(--border-radius);
-            background: rgba(59, 130, 246, 0.05);
+            background: var(--bg-secondary);
+            backdrop-filter: blur(5px);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 1rem;
             text-decoration: none;
             width: 100%;
+            border: 1px solid var(--border-color);
         }
 
         .social-link i {
@@ -439,8 +472,7 @@
         .social-link:hover {
             color: var(--accent);
             transform: translateX(10px);
-            background: rgba(59, 130, 246, 0.1);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            background: #f1f3f5;
         }
 
         /* Projects Grid */
@@ -456,7 +488,8 @@
             border-radius: var(--border-radius);
             padding: 2rem;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
             transform: translateY(0);
         }
 
@@ -479,8 +512,8 @@
         }
 
         .project-btn {
-            background: var(--accent);
-            color: var(--text-primary);
+            background: linear-gradient(45deg, var(--accent), var(--accent-dark));
+            color: white;
             padding: 0.75rem 1.5rem;
             border-radius: var(--border-radius);
             text-decoration: none;
@@ -488,11 +521,13 @@
             transition: background-color 0.3s ease;
             display: inline-block;
             transform: translateY(0);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
         }
 
         .project-btn:hover {
-            background: var(--accent-dark);
+            background: linear-gradient(45deg, var(--accent-dark), var(--accent));
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
         }
 
         /* Certificates */
@@ -511,7 +546,8 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            border: 2px solid rgba(59, 130, 246, 0.1);
+            border: 2px solid var(--border-color);
+            backdrop-filter: blur(5px);
             cursor: pointer;
         }
 
@@ -522,12 +558,13 @@
         }
 
         .cert-container {
-            background: var(--bg-primary);
+            background: var(--card-bg);
             padding: 1rem;
             border-radius: var(--border-radius);
             text-align: center;
             max-width: 450px;
             margin: 0 auto;
+            backdrop-filter: blur(5px);
         }
 
         .cert-title {
@@ -562,6 +599,8 @@
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
         }
 
         .modal.show {
@@ -571,15 +610,19 @@
 
         .modal-content {
             background: var(--card-bg);
+            backdrop-filter: blur(10px);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-color);
             padding: 2rem;
             width: 90%;
             max-width: 500px;
             position: relative;
             transform: scale(1);
             opacity: 1;
+            margin: 1rem;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .modal.show .modal-content {
@@ -609,7 +652,7 @@
             font-size: 4rem;
             font-weight: bold;
             color: var(--accent);
-            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            text-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
             margin-bottom: 2rem;
             font-family: 'Courier New', monospace;
         }
@@ -622,20 +665,20 @@
 
         .control-btn,
         .stopwatch-btn {
-            background: var(--accent);
-            color: var(--text-primary);
+            background: linear-gradient(45deg, var(--accent), var(--accent-dark));
+            color: white;
             padding: 0.75rem 1.5rem;
             border-radius: var(--border-radius);
             font-weight: 500;
             border: none;
             cursor: pointer;
             transform: translateY(0);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
         }
 
         .control-btn:hover,
         .stopwatch-btn:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
         }
 
         .control-btn:active,
@@ -645,17 +688,17 @@
 
         .control-btn.start,
         .stopwatch-btn.start {
-            background: #10b981;
+            background: var(--accent);
         }
 
         .control-btn.stop,
         .stopwatch-btn.stop {
-            background: #ef4444;
+            background: var(--accent-dark);
         }
 
         .control-btn.reset,
         .stopwatch-btn.reset {
-            background: #6b7280;
+            background: #666666;
         }
 
         /* Form Styles */
@@ -670,8 +713,9 @@
         }
 
         .form-input {
-            background: var(--bg-primary);
-            border: 1px solid var(--text-secondary);
+            background: var(--bg-secondary);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
             padding: 0.75rem 1rem;
             color: var(--text-primary);
@@ -680,8 +724,8 @@
 
         .form-input:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-            outline: none;
+            background: var(--bg-primary);
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
         }
 
         .radio-group {
@@ -691,37 +735,115 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .section {
-                padding: 2rem;
-                margin-bottom: 3rem;
+        @media (max-width: 1200px) {
+            .main-content {
+                padding: 5rem 1.5rem 2rem;
             }
+            
+            .section {
+                padding: 2.5rem;
+            }
+        }
 
+        @media (max-width: 992px) {
             .section-title {
                 font-size: 2rem;
-                margin-bottom: 2rem;
             }
+            
+            .landing h1 {
+                font-size: 3rem;
+            }
+            
+            .landing-logo {
+                width: 350px;
+                height: 350px;
+            }
+        }
 
-            .about-content,
-            .education-content {
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.75rem 1rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.25rem;
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+            
+            .landing-logo {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .landing h1 {
+                font-size: 2.5rem;
+            }
+            
+            .landing h2 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 4rem 1rem 1rem;
+            }
+            
+            .section {
                 padding: 1.5rem;
             }
-
-            .projects-grid,
-            .cert-grid {
-                gap: 1.5rem;
+            
+            .section-title {
+                font-size: 1.75rem;
             }
-
-            .profile-pic {
-                width: 160px;
-                height: 160px;
+            
+            .landing-logo {
+                width: 200px;
+                height: 200px;
             }
+            
+            .landing h1 {
+                font-size: 2rem;
+            }
+            
+            .landing h2 {
+                font-size: 1rem;
+            }
+            
+            .enter-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
 
-            .navbar-brand img {
-                width: 75px;
-                height: 75px;
-                border-width: 4px;
-                padding: 5px;
+        @media (max-width: 360px) {
+            .navbar-brand {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .landing-logo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .landing h1 {
+                font-size: 1.5rem;
+            }
+            
+            .landing h2 {
+                font-size: 0.9rem;
+            }
+            
+            .enter-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -732,11 +854,12 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(30, 41, 59, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem;
             z-index: 100;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid var(--border-color);
         }
 
         .mobile-nav-links {
@@ -781,12 +904,12 @@
         }
 
         /* Navigation Bar */
-            .navbar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-            background: rgba(30, 41, 59, 0.95);
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
             z-index: 1000;
@@ -796,6 +919,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transform: translateY(0);
             transition: transform 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .navbar.hide {
@@ -808,31 +932,30 @@
             gap: 1rem;
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 700;
             transition: transform 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar-brand span {
+            background: linear-gradient(45deg, var(--accent), var(--accent-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand:hover {
             transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .navbar-brand img {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            border: 4px solid var(--accent);
-            padding: 5px;
-            background: rgba(59, 130, 246, 0.15);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
-            transition: all 0.4s ease;
-        }
-
-        .navbar-brand img:hover {
-            transform: scale(1.1) rotate(360deg);
-            box-shadow: 0 0 35px rgba(59, 130, 246, 0.6);
-            border-color: #60a5fa;
-            background: rgba(59, 130, 246, 0.2);
+            display: none;
         }
 
         .navbar-links {
@@ -891,7 +1014,7 @@
 
         @media (max-width: 768px) {
             .navbar {
-                padding: 1rem;
+                padding: 0.75rem 1rem;
             }
 
             .nav-toggle {
@@ -900,24 +1023,18 @@
 
             .navbar-links {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 60px;
                 left: 0;
                 right: 0;
                 background: var(--card-bg);
                 padding: 1rem;
-                flex-direction: column;
-                gap: 1rem;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                transform: translateY(-10px);
-                opacity: 0;
-                transition: all 0.3s ease;
+                box-shadow: var(--shadow-md);
+                z-index: 999;
             }
 
             .navbar-links.show {
                 display: flex;
-                transform: translateY(0);
-                opacity: 1;
             }
 
             .nav-link {
@@ -964,10 +1081,11 @@
         }
 
         .skill-category {
-            background: var(--bg-primary);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
         }
 
         .skill-title {
@@ -988,14 +1106,15 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-                padding: 1rem;
-            background: rgba(59, 130, 246, 0.1);
+            padding: 1rem;
+            background: rgba(74, 144, 226, 0.1);
             border-radius: var(--border-radius);
             transition: transform 0.3s ease;
         }
 
         .skill-item:hover {
             transform: translateY(-5px);
+            background: rgba(74, 144, 226, 0.15);
         }
 
         .skill-item i {
@@ -1017,16 +1136,19 @@
         }
 
         .interest-card {
-            background: var(--bg-primary);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
             text-align: center;
             transition: transform 0.3s ease;
         }
 
         .interest-card:hover {
             transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
         }
 
         .interest-card i {
@@ -1063,7 +1185,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -1075,7 +1197,7 @@
         .profile-section h1 {
             font-size: 3rem;
             margin: 1.5rem 0;
-            background: linear-gradient(45deg, var(--accent), #60a5fa);
+            background: linear-gradient(45deg, var(--accent), var(--accent-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -1095,12 +1217,13 @@
         }
 
         .goal-card {
-            background: var(--bg-primary);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: var(--border-radius);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
         }
 
         .goal-card:hover {
@@ -1159,10 +1282,11 @@
         }
 
         .contact-details {
-            background: var(--bg-primary);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
         }
 
         .contact-item {
@@ -1171,13 +1295,14 @@
             gap: 1rem;
             margin-bottom: 2rem;
             padding: 1.5rem;
-            background: rgba(59, 130, 246, 0.05);
+            background: var(--bg-secondary);
+            backdrop-filter: blur(5px);
             border-radius: var(--border-radius);
             transition: all 0.3s ease;
         }
 
         .contact-item:hover {
-            background: rgba(59, 130, 246, 0.1);
+            background: #f1f3f5;
             transform: translateX(5px);
         }
 
@@ -1225,7 +1350,7 @@
         .nav-toggle-btn {
             position: fixed;
             right: 20px;
-            bottom: 20px;
+            bottom: calc(20px + env(safe-area-inset-bottom));
             background: var(--accent);
             color: var(--text-primary);
             width: 45px;
@@ -1246,8 +1371,8 @@
 
         .nav-toggle-btn.visible {
             opacity: 1;
-                transform: translateY(0);
-            }
+            transform: translateY(0);
+        }
 
         .nav-toggle-btn:hover {
             background: var(--accent-dark);
@@ -1260,6 +1385,238 @@
 
         .nav-toggle-btn.active i {
             transform: rotate(180deg);
+        }
+
+        /* Add responsive font sizing */
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 13px;
+            }
+        }
+
+        /* Fix mobile viewport height issues */
+        .landing {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+
+        /* Fix iOS Safari 100vh issue */
+        @supports (-webkit-touch-callout: none) {
+            .landing {
+                min-height: -webkit-fill-available;
+            }
+        }
+
+        /* Improve touch targets for mobile */
+        @media (max-width: 768px) {
+            .nav-link,
+            .mobile-nav-link,
+            .project-btn,
+            .control-btn,
+            .stopwatch-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            .social-link {
+                padding: 1.2rem;
+            }
+        }
+
+        /* Fix modal scrolling on mobile */
+        .modal {
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            margin: 1rem;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        /* Improve form elements on mobile */
+        @media (max-width: 768px) {
+            .form-input,
+            .form-label,
+            .radio-group label {
+                font-size: 16px; /* Prevent zoom on iOS */
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Fix navbar on mobile */
+        @media (max-width: 768px) {
+            .navbar-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--card-bg);
+                padding: 1rem;
+                box-shadow: var(--shadow-md);
+                z-index: 999;
+            }
+
+            .navbar-links.show {
+                display: flex;
+            }
+        }
+
+        /* Fix mobile navigation */
+        @media (max-width: 768px) {
+            .mobile-nav {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+
+            .mobile-nav-links {
+                padding: 0.5rem env(safe-area-inset-bottom);
+            }
+        }
+
+        /* Fix project cards on small screens */
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Fix contact section on mobile */
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-item {
+                padding: 1.2rem;
+            }
+        }
+
+        /* Fix certificate display on mobile */
+        @media (max-width: 768px) {
+            .cert-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .certificate {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        /* Fix landing page on small screens */
+        @media (max-width: 360px) {
+            .landing-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .landing h1 {
+                font-size: 1.5rem;
+            }
+
+            .landing h2 {
+                font-size: 0.9rem;
+            }
+
+            .enter-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Fix navbar toggle button */
+        .nav-toggle-btn {
+            bottom: calc(20px + env(safe-area-inset-bottom));
+        }
+
+        /* Add smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fix iOS momentum scrolling */
+        .main-content {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Fix font rendering */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Fix button focus states */
+        button:focus,
+        a:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Fix modal focus trap */
+        .modal:focus-within {
+            outline: none;
+        }
+
+        /* Fix iOS input zoom */
+        @media (max-width: 768px) {
+            input, select, textarea {
+                font-size: 16px;
+            }
+        }
+
+        .bmi-calculator {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .bmi-result {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 1.5rem 0;
+        }
+
+        .bmi-category {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .bmi-calculator .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .bmi-calculator .form-input {
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .bmi-calculator .project-btn {
+            margin: 1rem 0;
         }
     </style>
 </head>
@@ -1276,8 +1633,7 @@
 
     <nav class="navbar">
         <a href="#" class="navbar-brand">
-            <img src="https://i.postimg.cc/fyGTHGQf/logo.png" alt="Mhamad Koussa">
-            <span>Mhamad Koussa</span>
+            <span>Mhamad Koussa (rast0fx)</span>
         </a>
         <button class="nav-toggle" onclick="toggleNav()">
             <i class="fas fa-bars"></i>
@@ -1289,7 +1645,7 @@
             <a href="#interests" class="nav-link" onclick="scrollToSection('interests')">Interests</a>
             <a href="#projects" class="nav-link" onclick="scrollToSection('projects')">Projects</a>
             <a href="#certificates" class="nav-link" onclick="scrollToSection('certificates')">Certificates</a>
-            <a href="#contact" class="nav-link" onclick="scrollToSection('contact')">Contact</a>
+            <a href="#contact" class="nav-link" onclick="scrollToSection('contact')">Other</a>
         </div>
     </nav>
 
@@ -1433,6 +1789,12 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
+                    <h3 class="project-title">Roblox Experience</h3>
+                    <p class="project-desc">A comprehensive showcase of my Roblox experience, including roles in various military groups and achievements. Features detailed information about my contributions and leadership roles.</p>
+                    <a href="https://rast0fx.github.io/experience/" class="project-btn" target="_blank">View Project</a>
+                </div>
+
+                <div class="project-card">
                     <h3 class="project-title">Portfolio Website</h3>
                     <p class="project-desc">A modern, responsive portfolio website showcasing my web development skills. Features include smooth animations, interactive UI elements, and a clean, professional design.</p>
                     <a href="https://rast0fx.github.io/leaderportfolio/" class="project-btn" target="_blank">View Project</a>
@@ -1448,6 +1810,12 @@
                     <h3 class="project-title">Stopwatch</h3>
                     <p class="project-desc">A functional stopwatch with start, stop, and reset functionality. Tracks time with precision.</p>
                     <a href="javascript:void(0)" class="project-btn" onclick="openStopwatchProject()">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">BMI Calculator</h3>
+                    <p class="project-desc">A simple BMI calculator that helps users determine their body mass index and weight category.</p>
+                    <a href="javascript:void(0)" class="project-btn" onclick="openBMICalculator()">View Project</a>
                 </div>
 
                 <div class="project-card">
@@ -1498,7 +1866,7 @@
 
         <!-- Add Contact Us section before the end of main-content -->
         <section class="section" id="contact">
-            <h2 class="section-title">Connect With Me</h2>
+            <h2 class="section-title">Other</h2>
             <div class="contact-content">
                 <div class="contact-details">
                     <div class="contact-item">
@@ -1515,13 +1883,7 @@
                             <a href="mailto:rastosiafox@gmail.com">rastosiafox@gmail.com</a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="contact-item-content">
-                            <h3>Location</h3>
-                            <p>Bourjein, Lebanon</p>
-                        </div>
-                    </div>
+                    
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div class="contact-item-content">
@@ -1531,7 +1893,7 @@
                     </div>
                 </div>
                 <div class="social-links-container">
-                    <h3 class="social-links-title">Connect With Me</h3>
+                    <h3 class="social-links-title">Socials</h3>
                     <div class="social-links">
                         <a href="https://www.instagram.com/mk0uss4/" target="_blank" class="social-link">
                             <i class="fab fa-instagram"></i>
@@ -1618,6 +1980,26 @@
         </div>
     </div>
 
+    <div class="modal" id="bmi-modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal(this)">×</button>
+            <h2 class="section-title">BMI Calculator</h2>
+            <div class="bmi-calculator">
+                <div class="form-group">
+                    <label class="form-label">Weight (kg)</label>
+                    <input type="number" id="weight" class="form-input" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Height (cm)</label>
+                    <input type="number" id="height" class="form-input" step="0.1" required>
+                </div>
+                <button class="project-btn" onclick="calculateBMI()">Calculate BMI</button>
+                <div id="bmi-result" class="bmi-result"></div>
+                <div id="bmi-category" class="bmi-category"></div>
+            </div>
+        </div>
+    </div>
+
     <nav class="mobile-nav">
         <div class="mobile-nav-links">
             <a href="#about" class="mobile-nav-link" onclick="scrollToSection('about')">
@@ -1657,16 +2039,96 @@
     </button>
 
     <script>
-        // Modal Functions
+        // Debounce function for performance
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Throttle function for performance
+        function throttle(func, limit) {
+            let inThrottle;
+            return function(...args) {
+                if (!inThrottle) {
+                    func.apply(this, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Improved scroll handling
+        const handleScroll = throttle(() => {
+            const navbar = document.querySelector('.navbar');
+            const toggleBtn = document.querySelector('.nav-toggle-btn');
+            const currentScrollY = window.scrollY;
+            
+            // Show/hide toggle button based on scroll position
+            if (currentScrollY > 100) {
+                toggleBtn.classList.add('visible');
+            } else {
+                toggleBtn.classList.remove('visible');
+            }
+            
+            // Show navbar at the top of the page
+            if (currentScrollY <= 0) {
+                navbar.classList.remove('hide');
+                isNavbarVisible = true;
+            } 
+            // Hide navbar when scrolling down
+            else if (currentScrollY > lastScrollY && !navbar.classList.contains('hide')) {
+                navbar.classList.add('hide');
+                isNavbarVisible = false;
+            } 
+            // Show navbar when scrolling up
+            else if (currentScrollY < lastScrollY && navbar.classList.contains('hide')) {
+                navbar.classList.remove('hide');
+                isNavbarVisible = true;
+            }
+            
+            lastScrollY = currentScrollY;
+        }, 100);
+
+        // Improved section visibility detection
+        const handleSectionVisibility = debounce(() => {
+            const sections = document.querySelectorAll('section');
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    const sectionId = section.getAttribute('id');
+                    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, 100);
+
+        // Improved modal handling
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
             setTimeout(() => modal.classList.add('show'), 10);
         }
 
         function closeModal(button) {
             const modal = button.closest('.modal');
             modal.classList.remove('show');
+            document.body.style.overflow = '';
             setTimeout(() => {
                 modal.style.display = 'none';
                 // Clear intervals
@@ -1685,6 +2147,121 @@
                 document.querySelector('.control-btn.stop').disabled = false;
             }, 300);
         }
+
+        // Improved scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const headerOffset = 80;
+            const elementPosition = section.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Update active state in mobile nav
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Close mobile menu if open
+            const navLinks = document.querySelector('.navbar-links');
+            const navToggle = document.querySelector('.nav-toggle i');
+            if (navLinks.classList.contains('show')) {
+                navLinks.classList.remove('show');
+                navToggle.classList.remove('fa-times');
+                navToggle.classList.add('fa-bars');
+            }
+        }
+
+        // Improved navigation toggle
+        function toggleNav() {
+            const navLinks = document.querySelector('.navbar-links');
+            const navToggle = document.querySelector('.nav-toggle i');
+            
+            navLinks.classList.toggle('show');
+            navToggle.classList.toggle('fa-bars');
+            navToggle.classList.toggle('fa-times');
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function closeMenu(e) {
+                if (!navLinks.contains(e.target) && !navToggle.contains(e.target) && navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                    navToggle.classList.remove('fa-times');
+                    navToggle.classList.add('fa-bars');
+                    document.removeEventListener('click', closeMenu);
+                }
+            });
+        }
+
+        // Improved navbar toggle
+        function toggleNavbar() {
+            const navbar = document.querySelector('.navbar');
+            const toggleBtn = document.querySelector('.nav-toggle-btn');
+            
+            isNavbarVisible = !isNavbarVisible;
+            navbar.classList.toggle('hide');
+            toggleBtn.classList.toggle('active');
+        }
+
+        // Improved website entry
+        function enterWebsite() {
+            const landing = document.getElementById('landing');
+            const portfolio = document.getElementById('portfolio');
+            
+            // Preload the portfolio content
+            portfolio.style.display = 'block';
+            portfolio.style.opacity = '0';
+            
+            // Faster transition
+            landing.style.transition = 'opacity 0.3s ease';
+            portfolio.style.transition = 'opacity 0.3s ease';
+            
+            // Start the transition
+            landing.style.opacity = '0';
+            
+            // Shorter timeout for smoother transition
+            setTimeout(() => {
+                landing.style.display = 'none';
+                portfolio.style.opacity = '1';
+            }, 300);
+        }
+
+        // Event Listeners
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleSectionVisibility);
+        window.addEventListener('resize', handleSectionVisibility);
+
+        // Close modals when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.querySelector('.close-btn'));
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preload the portfolio content
+            const portfolio = document.getElementById('portfolio');
+            portfolio.style.display = 'none';
+            portfolio.style.opacity = '0';
+            portfolio.style.transition = 'opacity 0.3s ease';
+            
+            // Preload images
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.src) {
+                    const image = new Image();
+                    image.src = img.src;
+                }
+            });
+        });
 
         // Clock Functions
         let clockInterval;
@@ -1723,7 +2300,6 @@
                     updateStopwatchDisplay();
                 }, 1000);
                 
-                // Update button states
                 document.querySelector('.control-btn.start').disabled = true;
                 document.querySelector('.control-btn.stop').disabled = false;
             }
@@ -1734,7 +2310,6 @@
                 clearInterval(stopwatchInterval);
                 isRunning = false;
                 
-                // Update button states
                 document.querySelector('.control-btn.start').disabled = false;
                 document.querySelector('.control-btn.stop').disabled = true;
             }
@@ -1745,7 +2320,6 @@
             stopwatchTime = 0;
             updateStopwatchDisplay();
             
-            // Reset button states
             document.querySelector('.control-btn.start').disabled = false;
             document.querySelector('.control-btn.stop').disabled = false;
         }
@@ -1769,150 +2343,45 @@
             closeModal(event.target.querySelector('.close-btn'));
         }
 
-        // Close modals when clicking outside
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal(modal.querySelector('.close-btn'));
-                }
-            });
-        });
-
-        // Intersection Observer for section animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Add animation to project cards on scroll
-        document.querySelectorAll('.project-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-        });
-
-        // Add these new functions
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.scrollIntoView({ behavior: 'smooth' });
-            
-            // Update active state in mobile nav
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
+        // BMI Calculator Functions
+        function openBMICalculator() {
+            openModal('bmi-modal');
         }
 
-        // Add scroll event listener for mobile nav
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const scrollPosition = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    const sectionId = section.getAttribute('id');
-                    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        });
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to m
+            const resultDiv = document.getElementById('bmi-result');
+            const categoryDiv = document.getElementById('bmi-category');
 
-        // Navigation functions
-        function toggleNav() {
-            const navbar = document.querySelector('.navbar');
-            const navLinks = document.querySelector('.navbar-links');
-            const navToggle = document.querySelector('.nav-toggle i');
-            
-            navLinks.classList.toggle('show');
-            navToggle.classList.toggle('fa-bars');
-            navToggle.classList.toggle('fa-times');
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function closeMenu(e) {
-                if (!navbar.contains(e.target) && navLinks.classList.contains('show')) {
-                    navLinks.classList.remove('show');
-                    navToggle.classList.remove('fa-times');
-                    navToggle.classList.add('fa-bars');
-                    document.removeEventListener('click', closeMenu);
-                }
-            });
-        }
+            if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+                resultDiv.textContent = 'Please enter valid values';
+                categoryDiv.textContent = '';
+                return;
+            }
 
-        // Add navbar toggle functionality
-        let isNavbarVisible = true;
-        let lastScrollY = window.scrollY;
-        let scrollTimeout;
+            const bmi = weight / (height * height);
+            resultDiv.textContent = `Your BMI: ${bmi.toFixed(1)}`;
 
-        function toggleNavbar() {
-            const navbar = document.querySelector('.navbar');
-            const toggleBtn = document.querySelector('.nav-toggle-btn');
-            
-            isNavbarVisible = !isNavbarVisible;
-            navbar.classList.toggle('hide');
-            toggleBtn.classList.toggle('active');
-        }
+            let category = '';
+            let color = '';
 
-        // Improved navbar scroll behavior
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            const toggleBtn = document.querySelector('.nav-toggle-btn');
-            const currentScrollY = window.scrollY;
-            
-            // Show/hide toggle button based on scroll position
-            if (currentScrollY > 100) {
-                toggleBtn.classList.add('visible');
+            if (bmi < 18.5) {
+                category = 'Underweight';
+                color = '#3498db';
+            } else if (bmi < 25) {
+                category = 'Normal weight';
+                color = '#2ecc71';
+            } else if (bmi < 30) {
+                category = 'Overweight';
+                color = '#f1c40f';
             } else {
-                toggleBtn.classList.remove('visible');
+                category = 'Obese';
+                color = '#e74c3c';
             }
-            
-            // Clear the timeout
-            clearTimeout(scrollTimeout);
-            
-            // Show navbar at the top of the page
-            if (currentScrollY <= 0) {
-                navbar.classList.remove('hide');
-                isNavbarVisible = true;
-            } 
-            // Hide navbar when scrolling down
-            else if (currentScrollY > lastScrollY && !navbar.classList.contains('hide')) {
-                navbar.classList.add('hide');
-                isNavbarVisible = false;
-            } 
-            // Show navbar when scrolling up
-            else if (currentScrollY < lastScrollY && navbar.classList.contains('hide')) {
-                navbar.classList.remove('hide');
-                isNavbarVisible = true;
-            }
-            
-            // Set a timeout to show navbar when scrolling stops
-            scrollTimeout = setTimeout(() => {
-                if (currentScrollY > 0 && isNavbarVisible) {
-                    navbar.classList.remove('hide');
-                }
-            }, 150);
-            
-            lastScrollY = currentScrollY;
-        });
 
-        function enterWebsite() {
-            document.getElementById('landing').style.display = 'none';
-            document.getElementById('portfolio').style.display = 'block';
+            categoryDiv.textContent = `Category: ${category}`;
+            categoryDiv.style.color = color;
         }
     </script>
 </body>
