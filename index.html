@@ -43,7 +43,7 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: url('https://i.postimg.cc/HsdkHPmj/5559852.jpg');
+            background-image: url('https://i.postimg.cc/vHP0DjzN/182428240217.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1706,15 +1706,7 @@
     </style>
 </head>
 <body>
-    <!-- Landing Page -->
-    <div class="landing" id="landing">
-        <div class="landing-content">
-            <img src="https://i.postimg.cc/fyGTHGQf/logo.png" alt="Mhamad Koussa" class="landing-logo">
-            <h1>MHAMAD KOUSSA</h1>
-            <h2>( rast0fx )</h2>
-            <button class="enter-btn" onclick="enterWebsite()">Enter Website</button>
-        </div>
-    </div>
+   
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -1731,6 +1723,10 @@
                 <i class="fas fa-graduation-cap"></i>
                 <span>Education</span>
             </a>
+ <a href="#certificates" class="nav-link" onclick="scrollToSection('certificates')">
+                <i class="fas fa-certificate"></i>
+                <span>Certificates</span>
+            </a>
             <a href="#skills" class="nav-link" onclick="scrollToSection('skills')">
                 <i class="fas fa-code"></i>
                 <span>Skills</span>
@@ -1740,10 +1736,7 @@
                 <span>Interests</span>
             </a>
             
-            <a href="#certificates" class="nav-link" onclick="scrollToSection('certificates')">
-                <i class="fas fa-certificate"></i>
-                <span>Certificates</span>
-            </a>
+           
             <a href="#contact" class="nav-link" onclick="scrollToSection('contact')">
                 <i class="fas fa-envelope"></i>
                 <span>Other</span>
@@ -1863,6 +1856,21 @@
                 </div>
             </div>
         </section>
+<!-- Certificates Section -->
+        <section class="section" id="certificates">
+            <h2 class="section-title">Certificates</h2>
+            <div class="cert-grid">
+                <div class="cert-container">
+                    <img src="https://i.postimg.cc/VvBYfrHH/Whats-App-Image-2025-03-19-at-12-31-57-PM.jpg" 
+                         alt="Web Development Certificate" 
+                         class="certificate" 
+                         onclick="window.open(this.src, '_blank')"
+                         title="Click to view full size">
+                    <h3 class="cert-title">Web Development Certificate</h3>
+                    <p class="cert-desc">Certificate of completion in Web Development fundamentals, covering HTML, CSS, and JavaScript.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- Skills Section -->
         <section class="section" id="skills">
@@ -1947,21 +1955,7 @@
 
        
 
-        <!-- Certificates Section -->
-        <section class="section" id="certificates">
-            <h2 class="section-title">Certificates</h2>
-            <div class="cert-grid">
-                <div class="cert-container">
-                    <img src="https://i.postimg.cc/VvBYfrHH/Whats-App-Image-2025-03-19-at-12-31-57-PM.jpg" 
-                         alt="Web Development Certificate" 
-                         class="certificate" 
-                         onclick="window.open(this.src, '_blank')"
-                         title="Click to view full size">
-                    <h3 class="cert-title">Web Development Certificate</h3>
-                    <p class="cert-desc">Certificate of completion in Web Development fundamentals, covering HTML, CSS, and JavaScript.</p>
-                </div>
-            </div>
-        </section>
+        
 
         <!-- Add Contact Us section before the end of main-content -->
         <section class="section" id="contact">
@@ -2270,28 +2264,7 @@
             toggleBtn.classList.toggle('active');
         }
 
-        // Improved website entry
-        function enterWebsite() {
-            const landing = document.getElementById('landing');
-            const portfolio = document.getElementById('portfolio');
-            
-            // Preload the portfolio content
-            portfolio.style.display = 'block';
-            portfolio.style.opacity = '0';
-            
-            // Faster transition
-            landing.style.transition = 'opacity 0.3s ease';
-            portfolio.style.transition = 'opacity 0.3s ease';
-            
-            // Start the transition
-            landing.style.opacity = '0';
-            
-            // Shorter timeout for smoother transition
-            setTimeout(() => {
-                landing.style.display = 'none';
-                portfolio.style.opacity = '1';
-            }, 300);
-        }
+    
 
         // Event Listeners
         window.addEventListener('scroll', handleScroll);
