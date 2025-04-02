@@ -1,3 +1,8 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.main-content').classList.add('active');
+    });
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1025,7 +1030,7 @@
         }
 
         .nav-link {
-            color: #fff;
+            color: #b07f7f;
             text-decoration: none;
             font-size: 1rem;
             padding: 14px 18px;
@@ -1570,18 +1575,7 @@
 
         /* Fix landing page on small screens */
         @media (max-width: 360px) {
-            .landing-logo {
-                width: 150px;
-                height: 150px;
-            }
-
-            .landing h1 {
-                font-size: 1.5rem;
-            }
-
-            .landing h2 {
-                font-size: 0.9rem;
-            }
+           
 
             .enter-btn {
                 padding: 0.8rem 1.5rem;
@@ -1596,7 +1590,7 @@
 
         /* Add smooth scrolling */
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: native;
         }
 
         /* Fix iOS momentum scrolling */
@@ -1629,37 +1623,7 @@
             }
         }
 
-        .bmi-calculator {
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .bmi-result {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent);
-            margin: 1.5rem 0;
-        }
-
-        .bmi-category {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .bmi-calculator .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .bmi-calculator .form-input {
-            width: 100%;
-            max-width: 200px;
-            margin: 0 auto;
-        }
-
-        .bmi-calculator .project-btn {
-            margin: 1rem 0;
-        }
+       
 
         /* Remove Rating Styles */
         .rating-section,
@@ -1702,49 +1666,9 @@
     </style>
 </head>
 <body>
+    
+
    
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-list">
-            <a href="#about" class="nav-link" onclick="scrollToSection('about')">
-                <i class="fas fa-user"></i>
-                <span>About</span>
-            </a>
-<a href="#projects" class="nav-link" onclick="scrollToSection('projects')">
-                <i class="fas fa-project-diagram"></i>
-                <span>Projects</span>
-            </a>
-            <a href="#education" class="nav-link" onclick="scrollToSection('education')">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Education</span>
-            </a>
- <a href="#certificates" class="nav-link" onclick="scrollToSection('certificates')">
-                <i class="fas fa-certificate"></i>
-                <span>Certificates</span>
-            </a>
-            <a href="#skills" class="nav-link" onclick="scrollToSection('skills')">
-                <i class="fas fa-code"></i>
-                <span>Skills</span>
-            </a>
-            <a href="#interests" class="nav-link" onclick="scrollToSection('interests')">
-                <i class="fas fa-heart"></i>
-                <span>Interests</span>
-            </a>
-            
-           
-            <a href="#contact" class="nav-link" onclick="scrollToSection('contact')">
-                <i class="fas fa-envelope"></i>
-                <span>Other</span>
-            </a>
-        </div>
-    </nav>
-
-    <button class="nav-toggle" onclick="toggleNav()">
-        <i class="fas fa-bars"></i>
-    </button>
-
-    <div class="nav-overlay" onclick="toggleNav()"></div>
 
     <!-- Main Content -->
     <main class="main-content" id="portfolio">
@@ -1760,8 +1684,8 @@
                 </div>
             </div>
         </section>
- <!-- Projects Section -->
-        <section class="section" id="projects">
+         <!-- Projects Section -->
+         <section class="section" id="projects">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
@@ -1800,11 +1724,7 @@
                     <a href="javascript:void(0)" class="project-btn" onclick="openStopwatchProject()">View Project</a>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">BMI Calculator</h3>
-                    <p class="project-desc">A simple BMI calculator that helps users determine their body mass index and weight category.</p>
-                    <a href="javascript:void(0)" class="project-btn" onclick="openBMICalculator()">View Project</a>
-                </div>
+                
 
                 <div class="project-card">
                     <h3 class="project-title">Mock Survey Form</h3>
@@ -1813,7 +1733,19 @@
                 </div>
             </div>
         </section>
+        <style>
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
 
+        .project-btn {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+</style>
         <!-- Education Section -->
         <section class="section" id="education">
             <h2 class="section-title">Education</h2>
@@ -1852,7 +1784,7 @@
                 </div>
             </div>
         </section>
-<!-- Certificates Section -->
+        <!-- Certificates Section -->
         <section class="section" id="certificates">
             <h2 class="section-title">Certificates</h2>
             <div class="cert-grid">
@@ -1948,10 +1880,6 @@
                 
             </div>
         </section>
-
-       
-
-        
 
         <!-- Add Contact Us section before the end of main-content -->
         <section class="section" id="contact">
@@ -2069,30 +1997,9 @@
         </div>
     </div>
 
-    <div class="modal" id="bmi-modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal(this)">×</button>
-            <h2 class="section-title">BMI Calculator</h2>
-            <div class="bmi-calculator">
-                <div class="form-group">
-                    <label class="form-label">Weight (kg)</label>
-                    <input type="number" id="weight" class="form-input" step="0.1" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Height (cm)</label>
-                    <input type="number" id="height" class="form-input" step="0.1" required>
-                </div>
-                <button class="project-btn" onclick="calculateBMI()">Calculate BMI</button>
-                <div id="bmi-result" class="bmi-result"></div>
-                <div id="bmi-category" class="bmi-category"></div>
-            </div>
-        </div>
-    </div>
+   
 
-    <!-- Add navbar toggle button before closing body tag -->
-    <button class="nav-toggle-btn" onclick="toggleNavbar()">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+   
 
     <script>
         // Debounce function for performance
@@ -2121,57 +2028,7 @@
         }
 
         // Improved scroll handling
-        const handleScroll = throttle(() => {
-            const navbar = document.querySelector('.navbar');
-            const toggleBtn = document.querySelector('.nav-toggle-btn');
-            const currentScrollY = window.scrollY;
-            
-            // Show/hide toggle button based on scroll position
-            if (currentScrollY > 100) {
-                toggleBtn.classList.add('visible');
-            } else {
-                toggleBtn.classList.remove('visible');
-            }
-            
-            // Show navbar at the top of the page
-            if (currentScrollY <= 0) {
-                navbar.classList.remove('hide');
-                isNavbarVisible = true;
-            } 
-            // Hide navbar when scrolling down
-            else if (currentScrollY > lastScrollY && !navbar.classList.contains('hide')) {
-                navbar.classList.add('hide');
-                isNavbarVisible = false;
-            } 
-            // Show navbar when scrolling up
-            else if (currentScrollY < lastScrollY && navbar.classList.contains('hide')) {
-                navbar.classList.remove('hide');
-                isNavbarVisible = true;
-            }
-            
-            lastScrollY = currentScrollY;
-        }, 100);
-
-        // Improved section visibility detection
-        const handleSectionVisibility = debounce(() => {
-            const sections = document.querySelectorAll('section');
-            const scrollPosition = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    const sectionId = section.getAttribute('id');
-                    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, 100);
+       
 
         // Improved modal handling
         function openModal(modalId) {
@@ -2260,7 +2117,28 @@
             toggleBtn.classList.toggle('active');
         }
 
-    
+        // Improved website entry
+        function enterWebsite() {
+            const landing = document.getElementById('landing');
+            const portfolio = document.getElementById('portfolio');
+            
+            // Preload the portfolio content
+            portfolio.style.display = 'block';
+            portfolio.style.opacity = '0';
+            
+            // Faster transition
+            landing.style.transition = 'opacity 0.3s ease';
+            portfolio.style.transition = 'opacity 0.3s ease';
+            
+            // Start the transition
+            landing.style.opacity = '0';
+            
+            // Shorter timeout for smoother transition
+            setTimeout(() => {
+                landing.style.display = 'none';
+                portfolio.style.opacity = '1';
+            }, 300);
+        }
 
         // Event Listeners
         window.addEventListener('scroll', handleScroll);
@@ -2374,10 +2252,7 @@
             closeModal(event.target.querySelector('.close-btn'));
         }
 
-        // BMI Calculator Functions
-        function openBMICalculator() {
-            openModal('bmi-modal');
-        }
+       
 
         function calculateBMI() {
             const weight = parseFloat(document.getElementById('weight').value);
