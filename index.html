@@ -44,7 +44,9 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-            animation: gradientShift 15s ease infinite;
+            @media (min-width: 768px) {
+                animation: gradientShift 15s ease infinite;
+            }
             position: relative;
             -webkit-font-smoothing: antialiased;
             min-height: 100vh;
@@ -60,13 +62,19 @@
             right: 0;
             bottom: 0;
             background:
-                radial-gradient(circle at 0% 0%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(79, 70, 229, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 0% 100%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 0% 0%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
-            animation: pulseGlow 8s ease-in-out infinite alternate;
+            will-change: opacity;
+        }
+
+        @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+            body::before {
+                animation: pulseGlow 8s ease-in-out infinite alternate;
+            }
         }
 
         @keyframes pulseGlow {
@@ -174,18 +182,24 @@
 
         /* Main Content */
         .main-content {
-            padding: 2rem;
+            padding: 1rem;
             max-width: 1200px;
             margin: 0 auto;
             display: block;
+        }
+
+        @media (min-width: 768px) {
+            .main-content {
+                padding: 2rem;
+            }
         }
 
         /* Section Styles */
         .section {
             background: var(--card-bg);
             border-radius: var(--border-radius);
-            padding: 4rem;
-            margin-bottom: 6rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
             border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
@@ -195,11 +209,20 @@
             -webkit-backdrop-filter: blur(10px);
         }
 
-        .section:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 10px 30px rgba(236, 72, 153, 0.15),
-                0 10px 30px rgba(139, 92, 246, 0.15);
+        @media (min-width: 768px) {
+            .section {
+                padding: 4rem;
+                margin-bottom: 6rem;
+            }
+        }
+
+        @media (hover: hover) and (min-width: 768px) {
+            .section:hover {
+                transform: translateY(-2px);
+                box-shadow: 
+                    0 10px 30px rgba(236, 72, 153, 0.15),
+                    0 10px 30px rgba(139, 92, 246, 0.15);
+            }
         }
 
         .section::before {
@@ -602,7 +625,23 @@
         }
 
         .project-card {
-            animation: cardFloat 6s ease-in-out infinite;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        @media (min-width: 768px) {
+            .project-card {
+                animation: cardFloat 6s ease-in-out infinite;
+            }
         }
 
         .project-card::before {
@@ -627,11 +666,13 @@
             }
         }
 
-        .project-card:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 
-                0 10px 30px rgba(236, 72, 153, 0.2),
-                0 10px 30px rgba(139, 92, 246, 0.2);
+        @media (hover: hover) {
+            .project-card:hover {
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: 
+                    0 10px 30px rgba(236, 72, 153, 0.2),
+                    0 10px 30px rgba(139, 92, 246, 0.2);
+            }
         }
 
         .project-card:hover::before {
@@ -645,7 +686,9 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: titleGlow 3s ease-in-out infinite;
+            @media (prefers-reduced-motion: no-preference) {
+                animation: titleGlow 3s ease-in-out infinite;
+            }
         }
 
         @keyframes titleGlow {
@@ -659,22 +702,30 @@
 
         .project-desc {
             color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
             flex-grow: 1;
             letter-spacing: 0.01em;
+        }
+
+        @media (min-width: 768px) {
+            .project-desc {
+                margin-bottom: 2rem;
+                line-height: 1.7;
+                font-size: 1rem;
+            }
         }
 
         .project-btn {
             background: linear-gradient(45deg, var(--gradient-bright), var(--gradient-vibrant));
             color: white;
-            padding: 0.85rem 1.75rem;
+            padding: 0.75rem 1.25rem;
             border-radius: var(--border-radius-sm);
             text-decoration: none;
             font-weight: 500;
             display: inline-block;
-            font-size: 1rem;
+            font-size: 0.95rem;
             width: 100%;
             text-align: center;
             margin-top: auto;
@@ -684,11 +735,19 @@
             overflow: hidden;
             z-index: 1;
             letter-spacing: 0.02em;
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+            box-shadow: 0 4px 10px rgba(236, 72, 153, 0.15);
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            animation: buttonGlow 3s infinite;
+        }
+
+        @media (min-width: 768px) {
+            .project-btn {
+                padding: 0.85rem 1.75rem;
+                font-size: 1rem;
+                box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                animation: buttonGlow 3s infinite;
+            }
         }
 
         @keyframes buttonGlow {
