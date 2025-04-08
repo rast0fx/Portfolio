@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#647480">
     <meta name="mobile-web-app-capable" content="yes">
-    <title>Mhamad Koussa (rast  ) - Portfolio</title>
+    <title>Mhamad Koussa (rast0fx) - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -13,7 +13,7 @@
             --secondary-color: #1d4ed8;
             --accent-color: #93c5fd;
             --text-color: #f3f4f6;
-            --background-color: #1e293b;
+            --background-color: #2d3748;
             --card-background: #334155;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             --border-color: #475564;
@@ -25,7 +25,9 @@
             --warning-color: #f59e0b;
             --base-font-size: 16px;
             --mobile-font-scale: 0.9;
-            --nav-height: 60px;
+            --gradient-start: #2d3748;
+            --gradient-end: #1e293b;
+            --pattern-color: rgba(255, 255, 255, 0.05);
         }
 
         * {
@@ -39,150 +41,66 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--background-color);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             font-size: var(--base-font-size);
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            position: relative;
         }
 
-        nav {
-            position: fixed;
+        body::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: var(--nav-height);
-            background-color: var(--card-background);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 0 1.5rem;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, var(--pattern-color) 2px, transparent 2px);
+            background-size: 40px 40px;
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 1.5rem;
-            flex-grow: 1;
-        }
-
-        nav a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            color: var(--text-color);
-            border-radius: 8px;
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            min-height: 40px;
-            font-size: 1rem;
-        }
-
-        nav a:hover {
-            background-color: var(--hover-bg);
-            border-color: var(--border-color);
-            color: var(--primary-color);
-            transform: translateX(5px);
-        }
-
-        nav a:hover i {
-            transform: scale(1.1);
-        }
-
-        nav a.active {
-            background-color: var(--active-bg);
-            border-color: var(--border-color);
-            color: white;
-            position: relative;
-            font-weight: 600;
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: linear-gradient(45deg, transparent 45%, var(--pattern-color) 50%, transparent 55%);
+            background-size: 80px 80px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1.5rem;
             transition: transform 0.3s ease;
-            margin-top: var(--nav-height);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .card {
             background-color: var(--card-background);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: var(--card-shadow);
             border: 1px solid var(--border-color);
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             color: var(--text-color);
             min-height: 200px;
-            font-size: 1rem;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            transform: translateY(-4px) scale(1.02);
-        }
-
-        section {
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
-            animation-delay: calc(var(--section-index) * 0.1s);
-            will-change: opacity, transform;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .large-project-card h3,
-        .tech-item span,
-        .certificate-title {
-            color: white;
-        }
-
-        /* Navigation headings */
-        nav a i {
-            color: var(--primary-color);
-        }
-
-        nav a span {
-            color: var(--text-color);
-        }
-
-        nav a.active span {
-            color: white;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
+            font-size: 0.95rem;
         }
 
         .card {
@@ -199,7 +117,7 @@
         }
 
         .card h3 {
-            color: white;
+            color: var(--text-color);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
@@ -212,7 +130,7 @@
         }
 
         .card h4 {
-            color: white;
+            color: var(--text-color);
             margin-bottom: 0.5rem;
         }
 
@@ -290,7 +208,7 @@
         }
 
         .mini-project-card h4 {
-            color: white;
+            color: var(--text-color);
             margin-bottom: 0.6rem;
             font-size: 1.15rem;
             line-height: 1.4;
@@ -444,11 +362,10 @@
 
         .large-project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .large-project-card h3 {
-            color: white;
+            color: var(--text-color);
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
@@ -1061,17 +978,55 @@
                 font-size: 0.6rem;
             }
         }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-content {
+                max-width: 95vw;
+                margin: 1rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-item {
+                padding: 0.4rem;
+                min-width: 80px;
+            }
+
+            .tech-item i {
+                font-size: 0.85rem;
+            }
+
+            .tech-item span {
+                font-size: 0.75rem;
+            }
+
+            .tech-item small {
+                font-size: 0.6rem;
+            }
+        }
+
+        .main-content {
+            padding-bottom: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
     </style>
 </head>
 <body>
-    <nav id="navMenu">
-        <ul>
-            <li><a href="#about" class="active"><i class="fas fa-user-circle"></i> About</a></li>
-            <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-    </nav>
     <div class="container">
         <main class="main-content">
             <section id="about">
