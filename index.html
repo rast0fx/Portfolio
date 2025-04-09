@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#647480">
     <meta name="mobile-web-app-capable" content="yes">
     <title>Mhamad Koussa (rast0fx) - Portfolio</title>
@@ -254,9 +254,9 @@
             }
 
             .mini-project-card {
-                width: 100%;
-                max-width: 100%;
-                padding: 0.8rem;
+                width: 90%;
+                max-width: 400px;
+                margin-bottom: 1rem;
             }
 
             .project-icon {
@@ -275,6 +275,49 @@
             .view-project-btn {
                 font-size: 0.85rem;
                 padding: 0.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mini-project-card {
+                width: 95%;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mini-projects-grid {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0.5rem;
+            }
+
+            .mini-project-card {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 0;
+                padding: 1rem;
+                box-sizing: border-box;
+            }
+
+            .project-icon {
+                font-size: 1.8rem;
+            }
+
+            .mini-project-card h4 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mini-project-card {
+                padding: 0.8rem;
+                border-radius: 12px;
+            }
+
+            .view-project-btn {
+                padding: 0.5rem 0.3rem;
+                font-size: 0.8rem;
             }
         }
 
@@ -300,27 +343,27 @@
             max-height: 90vh;
             overflow-y: auto;
             border: 1px solid var(--border-color);
-            box-shadow: var(--card-shadow);
+            color: var(--text-color);
+        }
+
+        .modal-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
         }
 
         .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #6b7280;
-            transition: color 0.3s ease;
+            color: var(--text-color);
         }
 
         .close-modal:hover {
-            color: var(--text-color);
+            color: var(--primary-color);
         }
 
         #clock-display {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            align-items: center;
+            gap: 0.5rem;
             font-size: 3rem;
             color: var(--primary-color);
             margin: 2rem 0;
@@ -332,17 +375,24 @@
         }
 
         @media (max-width: 768px) {
-            .mini-projects-grid {
-                flex-direction: column;
+            #clock-display {
+                font-size: 2.5rem;
             }
 
-            .mini-project-card {
-                padding: 1.5rem;
+            #period {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #clock-display {
+                font-size: 1.8rem;
+                padding: 0.8rem;
+                gap: 0.3rem;
             }
 
-            .view-project-btn {
-                font-size: 0.9rem;
-                padding: 0.7rem;
+            #clock-display span {
+                min-width: 1.8rem;
             }
         }
 
@@ -473,14 +523,14 @@
             margin-bottom: 1rem;
         }
 
-        .stopwatch-buttons {
+        .stopwatch-controls {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin-top: 1rem;
         }
 
-        .stopwatch-buttons button {
+        .stopwatch-controls button {
             padding: 0.8rem 1.5rem;
             background-color: var(--secondary-color);
             color: white;
@@ -490,7 +540,7 @@
             transition: all 0.3s ease;
         }
 
-        .stopwatch-buttons button:hover {
+        .stopwatch-controls button:hover {
             background-color: var(--primary-color);
             transform: translateY(-2px);
         }
@@ -591,30 +641,30 @@
         /* Add specific background colors for different mini projects */
         .mini-project[data-project="clock"] {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+
         }
 
         .mini-project[data-project="stopwatch"] {
             background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-            color: white;
+
         }
 
         .mini-project[data-project="survey"] {
             background: linear-gradient(135deg, var(--hover-bg), var(--active-bg));
-            color: white;
+
         }
 
         .mini-project[data-project="clock"] .mini-project-header i,
         .mini-project[data-project="stopwatch"] .mini-project-header i,
         .mini-project[data-project="survey"] .mini-project-header i {
-            color: white;
+
         }
 
         .mini-project[data-project="clock"] .mini-project-tag,
         .mini-project[data-project="stopwatch"] .mini-project-tag,
         .mini-project[data-project="survey"] .mini-project-tag {
             background-color: rgba(255, 255, 255, 0.1);
-            color: white;
+
         }
 
         .mini-project[data-project="clock"] .mini-project-tag:hover,
@@ -626,7 +676,7 @@
         .mini-project[data-project="clock"] .mini-project-description,
         .mini-project[data-project="stopwatch"] .mini-project-description,
         .mini-project[data-project="survey"] .mini-project-description {
-            color: rgba(255, 255, 255, 0.9);
+
         }
 
         .mini-project[data-project="clock"] .mini-project-actions a,
@@ -686,12 +736,12 @@
             margin-bottom: 2rem;
         }
 
-        .stopwatch-buttons {
+        .stopwatch-controls {
             display: flex;
             gap: 1rem;
         }
 
-        .stopwatch-btn {
+        .stopwatch-controls button {
             padding: 0.8rem 1.5rem;
             background-color: var(--primary-color);
             color: white;
@@ -702,12 +752,12 @@
             transition: all 0.3s ease;
         }
 
-        .stopwatch-btn:hover {
+        .stopwatch-controls button:hover {
             background-color: var(--secondary-color);
             transform: translateY(-2px);
         }
 
-        .stopwatch-btn:active {
+        .stopwatch-controls button:active {
             transform: translateY(0);
         }
 
@@ -1024,6 +1074,142 @@
         section {
             margin-bottom: 3rem;
         }
+
+        @media (max-width: 768px) {
+            :root {
+                --base-font-size: 14px;
+                --mobile-font-scale: 0.85;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .projects-section, .mini-projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .large-projects {
+                grid-column: 1;
+            }
+
+            .mini-project-card {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .card a {
+                padding: 1rem;
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --base-font-size: 13px;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+        }
+
+        .calculator-container {
+            width: 300px;
+            margin: 0 auto;
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .calculator-display {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            font-size: 2rem;
+            text-align: right;
+            border: none;
+            border-radius: 8px;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+        }
+
+        .calculator-btn {
+            height: 50px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            background: var(--background-color);
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calculator-btn:hover {
+            background: var(--hover-bg);
+        }
+
+        .calculator-btn.operator {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .calculator-btn.equals {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .calculator-btn.zero {
+            grid-column: span 2;
+        }
+
+        .stopwatch-container {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-background);
+            border-radius: 12px;
+        }
+
+        .stopwatch-display {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            font-family: monospace;
+        }
+
+        .stopwatch-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .stopwatch-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .stopwatch-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -1104,6 +1290,14 @@
                                 <p>An interactive survey form with validation and submission functionality.</p>
                                 <button class="view-project-btn" onclick="openProject('survey')">View Project</button>
                             </div>
+                            <div class="mini-project-card" data-project="calculator">
+                                <div class="project-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <h4>Calculator</h4>
+                                <p>A basic calculator with addition, subtraction, multiplication, and division capabilities.</p>
+                                <button class="view-project-btn" onclick="openProject('calculator')">View Project</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1135,11 +1329,19 @@
                     <h2><i class="fas fa-stopwatch"></i> Stopwatch</h2>
                     <div class="project-demo">
                         <div class="stopwatch-container">
-                            <div class="stopwatch-display" id="stopwatch-display">00:00:00</div>
-                            <div class="stopwatch-buttons">
-                                <button class="stopwatch-btn" id="start-btn" onclick="startStopwatch()">Start</button>
-                                <button class="stopwatch-btn" id="stop-btn" onclick="stopStopwatch()">Stop</button>
-                                <button class="stopwatch-btn" id="reset-btn" onclick="resetStopwatch()">Reset</button>
+                            <div class="stopwatch-display">
+                                <span id="stopwatch-hours">00</span>:<span id="stopwatch-minutes">00</span>:<span id="stopwatch-seconds">00</span>.<span id="stopwatch-ms">00</span>
+                            </div>
+                            <div class="stopwatch-controls">
+                                <button onclick="startStopwatch()" class="stopwatch-btn">
+                                    <i class="fas fa-play"></i> Start
+                                </button>
+                                <button onclick="stopStopwatch()" class="stopwatch-btn">
+                                    <i class="fas fa-pause"></i> Stop
+                                </button>
+                                <button onclick="resetStopwatch()" class="stopwatch-btn">
+                                    <i class="fas fa-redo"></i> Reset
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1221,6 +1423,43 @@
                     </div>
                 </div>
             </div>
+
+            <div id="calculator-modal" class="project-modal">
+                <div class="modal-content">
+                    <span class="close-modal" onclick="closeProject()">&times;</span>
+                    <h2><i class="fas fa-calculator"></i> Calculator</h2>
+                    <div class="project-demo">
+                        <div class="calculator-container">
+                            <input type="text" class="calculator-display" id="calculator-display" disabled>
+                            <div class="calculator-buttons" id="calculator">
+                                <button class="calculator-btn operator">C</button>
+                                <button class="calculator-btn operator">±</button>
+                                <button class="calculator-btn operator">%</button>
+                                <button class="calculator-btn operator">÷</button>
+
+                                <button class="calculator-btn">7</button>
+                                <button class="calculator-btn">8</button>
+                                <button class="calculator-btn">9</button>
+                                <button class="calculator-btn operator">×</button>
+
+                                <button class="calculator-btn">4</button>
+                                <button class="calculator-btn">5</button>
+                                <button class="calculator-btn">6</button>
+                                <button class="calculator-btn operator">-</button>
+
+                                <button class="calculator-btn">1</button>
+                                <button class="calculator-btn">2</button>
+                                <button class="calculator-btn">3</button>
+                                <button class="calculator-btn operator">+</button>
+
+                                <button class="calculator-btn zero">0</button>
+                                <button class="calculator-btn">.</button>
+                                <button class="calculator-btn operator equals">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </section>
 
             <section id="education">
@@ -1228,7 +1467,7 @@
                 <div class="grid education-grid">
                     <div class="card education-card">
                         <div class="education-header">
-                            
+
                             <h3><a href="https://www.ciscollege.edu.lb/" target="_blank">CIS College (Barja Branch)</a></h3>
                         </div>
                         <div class="education-content">
@@ -1243,7 +1482,7 @@
 
                     <div class="card education-card">
                         <div class="education-header">
-                            
+
                             <h3><a href="https://robomind-edu.com/" target="_blank">Robomind Academy</a></h3>
                         </div>
                         <div class="education-content">
@@ -1400,7 +1639,7 @@
         function openProject(projectId) {
             const modal = document.getElementById(`${projectId}-modal`);
             modal.style.display = 'flex';
-            
+
             // Close any other open modals
             const otherModals = document.querySelectorAll('.project-modal');
             otherModals.forEach(m => {
@@ -1447,41 +1686,55 @@
             let hours = now.getHours();
             let minutes = now.getMinutes();
             let seconds = now.getSeconds();
-            let period = hours >= 12 ? 'PM' : 'AM';
 
-            hours = hours % 12;
-            hours = hours ? hours : 12;
+            // 12-hour format with AM/PM
+            let period = hours >= 12 ? 'PM' : 'AM';
+            let displayHours = hours % 12;
+            displayHours = displayHours ? displayHours : 12;
+
+            // Format with leading zeros
+            hours = hours < 10 ? '0' + hours : hours;
             minutes = minutes < 10 ? '0' + minutes : minutes;
             seconds = seconds < 10 ? '0' + seconds : seconds;
+            displayHours = displayHours < 10 ? '0' + displayHours : displayHours;
 
-            document.getElementById('hours').textContent = hours;
+            // Update both 12-hour and 24-hour displays
+            document.getElementById('hours').textContent = displayHours;
             document.getElementById('minutes').textContent = minutes;
             document.getElementById('seconds').textContent = seconds;
             document.getElementById('period').textContent = period;
+
+            // Optional: Update 24-hour display if exists
+            const hours24 = document.getElementById('hours-24');
+            if (hours24) {
+                hours24.textContent = hours;
+            }
         }
 
-        setInterval(updateClock, 1000);
+        // Initialize clock immediately and then every second
         updateClock();
+        const clockInterval = setInterval(updateClock, 1000);
 
         // Stopwatch
+        let stopwatchInterval;
         let stopwatchTime = 0;
-        let isRunning = false;
-        let interval;
+        let stopwatchRunning = false;
 
         function startStopwatch() {
-            if (!isRunning) {
-                interval = setInterval(() => {
-                    stopwatchTime += 10;
+            if (!stopwatchRunning) {
+                stopwatchRunning = true;
+                const startTime = Date.now() - stopwatchTime;
+                stopwatchInterval = setInterval(() => {
+                    stopwatchTime = Date.now() - startTime;
                     updateStopwatchDisplay();
                 }, 10);
-                isRunning = true;
             }
         }
 
         function stopStopwatch() {
-            if (isRunning) {
-                clearInterval(interval);
-                isRunning = false;
+            if (stopwatchRunning) {
+                clearInterval(stopwatchInterval);
+                stopwatchRunning = false;
             }
         }
 
@@ -1492,43 +1745,117 @@
         }
 
         function updateStopwatchDisplay() {
-            const hours = Math.floor(stopwatchTime / 3600000);
-            const minutes = Math.floor((stopwatchTime % 3600000) / 60000);
-            const seconds = Math.floor((stopwatchTime % 60000) / 1000);
-            const milliseconds = stopwatchTime % 1000;
+            const ms = stopwatchTime % 1000;
+            const totalSeconds = Math.floor(stopwatchTime / 1000);
+            const seconds = totalSeconds % 60;
+            const minutes = Math.floor(totalSeconds / 60) % 60;
+            const hours = Math.floor(totalSeconds / 3600);
 
-            const formattedTime = 
-                `${hours.toString().padStart(2, '0')}:${
-                minutes.toString().padStart(2, '0')}:${
-                seconds.toString().padStart(2, '0')}.${
-                Math.floor(milliseconds / 10).toString().padStart(2, '0')}`;
-
-            document.getElementById('stopwatch-time').textContent = formattedTime;
+            document.getElementById('stopwatch-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('stopwatch-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('stopwatch-seconds').textContent = seconds.toString().padStart(2, '0');
+            document.getElementById('stopwatch-ms').textContent = Math.floor(ms / 10).toString().padStart(2, '0');
         }
 
-        // Survey Form
-        const surveyForm = document.getElementById('survey-form');
-        if (surveyForm) {
-            surveyForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Collect form data
-                const formData = new FormData(this);
-                const data = {};
-                formData.forEach((value, key) => {
-                    data[key] = value;
-                });
+        // Calculator
+        let currentInput = '0';
+        let previousInput = '';
+        let operation = undefined;
+        let resetScreen = false;
 
-                // Show success message
-                alert('Thank you for submitting the survey!\n\nYour responses:\n' + 
-                    Object.entries(data).map(([key, value]) => 
-                        `${key}: ${value}`
-                    ).join('\n'));
+        const calculator = document.getElementById('calculator');
+        const display = document.getElementById('calculator-display');
 
-                // Reset form
-                this.reset();
-                closeProject();
+        if (calculator) {
+            calculator.addEventListener('click', function(e) {
+                if (e.target.matches('button')) {
+                    const value = e.target.textContent;
+
+                    if (value >= '0' && value <= '9') {
+                        appendNumber(value);
+                    } else if (value === '.') {
+                        appendDecimal();
+                    } else if (value === 'C') {
+                        clear();
+                    } else if (value === '=') {
+                        compute();
+                    } else {
+                        setOperation(value);
+                    }
+
+                    updateDisplay();
+                }
             });
+        }
+
+        function appendNumber(number) {
+            if (currentInput === '0' || resetScreen) {
+                currentInput = number;
+                resetScreen = false;
+            } else {
+                currentInput += number;
+            }
+        }
+
+        function appendDecimal() {
+            if (resetScreen) {
+                currentInput = '0.';
+                resetScreen = false;
+                return;
+            }
+            if (!currentInput.includes('.')) {
+                currentInput += '.';
+            }
+        }
+
+        function clear() {
+            currentInput = '0';
+            previousInput = '';
+            operation = undefined;
+        }
+
+        function setOperation(op) {
+            if (currentInput === '') return;
+            if (previousInput !== '') {
+                compute();
+            }
+            operation = op;
+            previousInput = currentInput;
+            resetScreen = true;
+        }
+
+        function compute() {
+            let computation;
+            const prev = parseFloat(previousInput);
+            const current = parseFloat(currentInput);
+
+            if (isNaN(prev) || isNaN(current)) return;
+
+            switch (operation) {
+                case '+':
+                    computation = prev + current;
+                    break;
+                case '-':
+                    computation = prev - current;
+                    break;
+                case '×':
+                    computation = prev * current;
+                    break;
+                case '÷':
+                    computation = prev / current;
+                    break;
+                default:
+                    return;
+            }
+
+            currentInput = computation.toString();
+            operation = undefined;
+            previousInput = '';
+            resetScreen = true;
+        }
+
+        function updateDisplay() {
+            display.value = currentInput;
         }
     </script>
 </body>
