@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #3b82f6;
-            --secondary-color: #1d4ed8;
-            --accent-color: #93c5fd;
-            --text-color: #f3f4f6;
-            --background-color: #2d3748;
-            --card-background: #334155;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            --primary-color: #7c3aed; /* Purple */
+            --secondary-color: #f59e0b; /* Orange */
+            --accent-color: #60a5fa; /* Light blue */
+            --text-color: #ffffff;
+            --background-color: #1f2937;
+            --card-background: #2d3748;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --border-color: #475564;
             --hover-bg: #475564;
             --active-bg: #647480;
@@ -25,9 +25,11 @@
             --warning-color: #f59e0b;
             --base-font-size: 16px;
             --mobile-font-scale: 0.9;
-            --gradient-start: #2d3748;
-            --gradient-end: #1e293b;
+            --gradient-start: #1f2937;
+            --gradient-end: #2d3748;
             --pattern-color: rgba(255, 255, 255, 0.05);
+            --hero-height: 100vh;
+            --hero-text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         * {
@@ -49,31 +51,32 @@
             -ms-text-size-adjust: 100%;
             background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
             position: relative;
+            min-height: 100vh;
         }
 
         body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             z-index: -1;
             pointer-events: none;
-            background: radial-gradient(circle at 50% 50%, var(--pattern-color) 2px, transparent 2px);
+            
             background-size: 40px 40px;
         }
 
         body::after {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             z-index: -1;
             pointer-events: none;
-            background: linear-gradient(45deg, transparent 45%, var(--pattern-color) 50%, transparent 55%);
+            background: linear-gradient(45deg, transparent 45%, rgba(245, 158, 11, 0.1) 50%, transparent 55%);
             background-size: 80px 80px;
         }
 
@@ -101,20 +104,17 @@
             color: var(--text-color);
             min-height: 200px;
             font-size: 0.95rem;
-        }
-
-        .card {
-            background: var(--card-background);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-bottom: 1.5rem;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
+
+       
 
         .card h3 {
             color: var(--text-color);
@@ -122,11 +122,6 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-        }
-
-        .card h3 i {
-            font-size: 1.8rem;
-            color: var(--secondary-color);
         }
 
         .card h4 {
@@ -138,7 +133,7 @@
             display: inline-block;
             margin-top: 1rem;
             padding: 0.8rem 1.5rem;
-            background-color: var(--secondary-color);
+            background-color: orange;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -193,10 +188,11 @@
             flex-direction: column;
             justify-content: space-between;
             height: auto;
+            margin-bottom: 1.5rem;
         }
 
         .mini-project-card:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             transform: translateY(-2px);
         }
 
@@ -228,7 +224,7 @@
         .view-project-btn {
             width: 100%;
             padding: 0.5rem;
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);
             color: white;
             border: none;
             border-radius: 8px;
@@ -291,7 +287,7 @@
                 gap: 1rem;
                 padding: 0.5rem;
             }
-
+            
             .mini-project-card {
                 width: 100%;
                 max-width: 100%;
@@ -299,22 +295,22 @@
                 padding: 1rem;
                 box-sizing: border-box;
             }
-
+            
             .project-icon {
                 font-size: 1.8rem;
             }
-
+            
             .mini-project-card h4 {
                 font-size: 1.1rem;
             }
         }
-
+        
         @media (max-width: 480px) {
             .mini-project-card {
                 padding: 0.8rem;
                 border-radius: 12px;
             }
-
+            
             .view-project-btn {
                 padding: 0.5rem 0.3rem;
                 font-size: 0.8rem;
@@ -345,16 +341,16 @@
             border: 1px solid var(--border-color);
             color: var(--text-color);
         }
-
+        
         .modal-content h2 {
             color: var(--primary-color);
             margin-bottom: 1.5rem;
         }
-
+        
         .close-modal {
             color: var(--text-color);
         }
-
+        
         .close-modal:hover {
             color: var(--primary-color);
         }
@@ -368,29 +364,29 @@
             color: var(--primary-color);
             margin: 2rem 0;
         }
-
+        
         #period {
             font-size: 1.5rem;
             margin-top: 0.5rem;
         }
-
+        
         @media (max-width: 768px) {
             #clock-display {
                 font-size: 2.5rem;
             }
-
+            
             #period {
                 font-size: 1.2rem;
             }
         }
-
+        
         @media (max-width: 480px) {
             #clock-display {
                 font-size: 1.8rem;
                 padding: 0.8rem;
                 gap: 0.3rem;
             }
-
+            
             #clock-display span {
                 min-width: 1.8rem;
             }
@@ -401,13 +397,14 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: var(--card-shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             border: 1px solid var(--border-color);
             cursor: pointer;
             min-height: 200px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            margin-bottom: 1.5rem;
         }
 
         .large-project-card:hover {
@@ -428,29 +425,32 @@
         }
 
         .project-button {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
             background-color: var(--secondary-color);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: all 0.3s ease;
-            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
             font-size: 1.1rem;
             font-weight: bold;
-            width: 100%;
-            text-align: center;
             border: none;
             cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            display: inline-block;
+            text-align: center;
+            min-width: 120px;
+            box-shadow: var(--card-shadow);
         }
 
         .project-button:hover {
-            background-color: var(--accent-color);
+            background-color: var(--primary-color);
             transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
 
+        .project-button:active {
+            transform: translateY(0);
+        }
+        
         @media (max-width: 768px) {
             .mini-project-card {
                 padding: 1.2rem;
@@ -641,30 +641,30 @@
         /* Add specific background colors for different mini projects */
         .mini-project[data-project="clock"] {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-
+            
         }
 
         .mini-project[data-project="stopwatch"] {
             background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-
+            
         }
 
         .mini-project[data-project="survey"] {
             background: linear-gradient(135deg, var(--hover-bg), var(--active-bg));
-
+            
         }
 
         .mini-project[data-project="clock"] .mini-project-header i,
         .mini-project[data-project="stopwatch"] .mini-project-header i,
         .mini-project[data-project="survey"] .mini-project-header i {
-
+            
         }
 
         .mini-project[data-project="clock"] .mini-project-tag,
         .mini-project[data-project="stopwatch"] .mini-project-tag,
         .mini-project[data-project="survey"] .mini-project-tag {
             background-color: rgba(255, 255, 255, 0.1);
-
+            
         }
 
         .mini-project[data-project="clock"] .mini-project-tag:hover,
@@ -676,7 +676,7 @@
         .mini-project[data-project="clock"] .mini-project-description,
         .mini-project[data-project="stopwatch"] .mini-project-description,
         .mini-project[data-project="survey"] .mini-project-description {
-
+            
         }
 
         .mini-project[data-project="clock"] .mini-project-actions a,
@@ -783,6 +783,9 @@
             padding: 1.5rem;
             box-shadow: var(--card-shadow);
             border: 1px solid var(--border-color);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
         }
 
         .contact-card h3 {
@@ -890,10 +893,14 @@
         }
 
         .certificate-card {
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            padding: 0;
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
         }
 
         .certificate-image-container {
@@ -959,12 +966,13 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            background: var(--hover-bg);
-            padding: 0.5rem;
+            background: var(--card-background);
+            padding: 1rem;
             border-radius: 8px;
             transition: all 0.3s ease;
             min-width: 100px;
             color: var(--text-color);
+            margin-bottom: 0.5rem;
         }
 
         .tech-item:hover {
@@ -1080,40 +1088,40 @@
                 --base-font-size: 14px;
                 --mobile-font-scale: 0.85;
             }
-
+            
             .container {
                 padding: 1rem;
             }
-
+            
             .projects-section, .mini-projects-grid {
                 grid-template-columns: 1fr;
             }
-
+            
             .large-projects {
                 grid-column: 1;
             }
-
+            
             .mini-project-card {
                 width: 100%;
                 margin-bottom: 1rem;
             }
-
+            
             .card a {
                 padding: 1rem;
                 min-width: 44px;
                 min-height: 44px;
             }
-
+            
             .grid {
                 grid-template-columns: 1fr;
             }
         }
-
+        
         @media (max-width: 480px) {
             :root {
                 --base-font-size: 13px;
             }
-
+            
             .card {
                 padding: 1rem;
             }
@@ -1127,7 +1135,7 @@
             padding: 1.5rem;
             box-shadow: var(--card-shadow);
         }
-
+        
         .calculator-display {
             width: 100%;
             height: 60px;
@@ -1140,13 +1148,13 @@
             background: var(--background-color);
             color: var(--text-color);
         }
-
+        
         .calculator-buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 0.8rem;
         }
-
+        
         .calculator-btn {
             height: 50px;
             font-size: 1.2rem;
@@ -1157,21 +1165,21 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-
+        
         .calculator-btn:hover {
             background: var(--hover-bg);
         }
-
+        
         .calculator-btn.operator {
             background: var(--primary-color);
             color: white;
         }
-
+        
         .calculator-btn.equals {
             background: var(--secondary-color);
             color: white;
         }
-
+        
         .calculator-btn.zero {
             grid-column: span 2;
         }
@@ -1182,20 +1190,20 @@
             background: var(--card-background);
             border-radius: 12px;
         }
-
+        
         .stopwatch-display {
             font-size: 3rem;
             margin-bottom: 2rem;
             color: var(--primary-color);
             font-family: monospace;
         }
-
+        
         .stopwatch-controls {
             display: flex;
             justify-content: center;
             gap: 1rem;
         }
-
+        
         .stopwatch-btn {
             padding: 0.8rem 1.5rem;
             background: var(--secondary-color);
@@ -1205,10 +1213,220 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .stopwatch-btn:hover {
             background: var(--primary-color);
             transform: translateY(-2px);
+        }
+
+        .hero {
+            min-height: var(--hero-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+           
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: var(--hero-text-shadow);
+            color: var(--text-color);
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-shadow: var(--hero-text-shadow);
+        }
+
+        .hero .github-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .hero .github-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .footer {
+            background: var(--gradient-start);
+            padding: 4rem 0;
+            margin-top: 4rem;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .footer h2 {
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer h2 i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .contact-card {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-card h3 i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .contact-label {
+            font-weight: 500;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        .contact-value {
+            color: var(--text-color);
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--card-background);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .social-link:hover {
+            background: var(--hover-bg);
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 3rem 0;
+            }
+
+            .contact-card {
+                padding: 1.5rem;
+            }
+
+            .social-links {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
         }
     </style>
 </head>
@@ -1228,6 +1446,9 @@
                     </div>
                 </div>
             </section>
+            <!-- Hero Section -->
+            
+            
 
             <section id="projects">
                 <h2><i class="fas fa-project-diagram"></i> Projects</h2>
@@ -1257,14 +1478,20 @@
                                 <p>A modern, responsive portfolio website showcasing my web development skills.</p>
                                 <a href="https://rast0fx.github.io/leaderportfolio/" target="_blank" class="project-button">View Project</a>
                             </div>
+                            <div class="large-project-card">
+                                <h3><i class="fas fa-gift"></i> Gifts By Nisrine</h3>
+                                <p>A modern, responsive e-commerce website for gift products with a focus on user experience and beautiful design.</p>
+                                <a href="https://rast0fx.github.io/GiftsByNisrine/" target="_blank" class="project-button">View Project</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Mini Projects Subsection -->
-                <div class="mini-projects-subsection">
-                    <h3><i class="fas fa-tools"></i> Mini Projects</h3>
-                    <div class="mini-projects">
+                <div class="large-projects">
+                    <div class="card">
+                        <h3><i class="fas fa-code"></i> Mini Projects</h3>
+                        <div class="grid">
                         <div class="mini-projects-grid">
                             <div class="mini-project-card" data-project="clock">
                                 <div class="project-icon">
@@ -1436,22 +1663,22 @@
                                 <button class="calculator-btn operator">±</button>
                                 <button class="calculator-btn operator">%</button>
                                 <button class="calculator-btn operator">÷</button>
-
+                                
                                 <button class="calculator-btn">7</button>
                                 <button class="calculator-btn">8</button>
                                 <button class="calculator-btn">9</button>
                                 <button class="calculator-btn operator">×</button>
-
+                                
                                 <button class="calculator-btn">4</button>
                                 <button class="calculator-btn">5</button>
                                 <button class="calculator-btn">6</button>
                                 <button class="calculator-btn operator">-</button>
-
+                                
                                 <button class="calculator-btn">1</button>
                                 <button class="calculator-btn">2</button>
                                 <button class="calculator-btn">3</button>
                                 <button class="calculator-btn operator">+</button>
-
+                                
                                 <button class="calculator-btn zero">0</button>
                                 <button class="calculator-btn">.</button>
                                 <button class="calculator-btn operator equals">=</button>
@@ -1467,7 +1694,7 @@
                 <div class="grid education-grid">
                     <div class="card education-card">
                         <div class="education-header">
-
+                            
                             <h3><a href="https://www.ciscollege.edu.lb/" target="_blank">CIS College (Barja Branch)</a></h3>
                         </div>
                         <div class="education-content">
@@ -1482,7 +1709,7 @@
 
                     <div class="card education-card">
                         <div class="education-header">
-
+                            
                             <h3><a href="https://robomind-edu.com/" target="_blank">Robomind Academy</a></h3>
                         </div>
                         <div class="education-content">
@@ -1533,9 +1760,9 @@
                     </div>
                 </div>
 
-                <div class="certificates-section">
-                    <h3><i class="fas fa-certificate"></i> Certificates</h3>
-                    <div class="certificates-grid">
+                <section id="education">
+                    <h2><i class="fas fa-graduation-cap"></i> Certificates</h2>
+                    <div class="grid education-grid">
                         <div class="certificate-card">
                             <div class="certificate-title">
                                 <font color="aqua">CIS College (Barja Branch) Graduation Certificate </font>
@@ -1569,68 +1796,70 @@
                 </div>
             </section>
 
-            <section id="contact" class="contact-section">
-                <h2><i class="fas fa-envelope"></i> Contact & Social</h2>
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <h3><i class="fas fa-info-circle"></i> Contact Information</h3>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <i class="fas fa-user"></i>
-                                <div class="contact-content">
-                                    <span class="contact-label">Name:</span>
-                                    <span class="contact-value">Mhamad Koussa (rast0fx)</span>
+            
+                    <section id="contact" class="contact-section">
+                        
+                        <div class="contact-info">
+                            <div class="contact-card">
+                                <h3><i class="fas fa-info-circle"></i> Contact Information</h3>
+                                <div class="contact-details">
+                                    <div class="contact-item">
+                                        <i class="fas fa-user"></i>
+                                        <div class="contact-content">
+                                            <span class="contact-label">Name:</span>
+                                            <span class="contact-value">Mhamad Koussa (rast0fx)</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <div class="contact-content">
+                                            <span class="contact-label">Email:</span>
+                                            <span class="contact-value">rastosiafox@gmail.com</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-clock"></i>
+                                        <div class="contact-content">
+                                            <span class="contact-label">Timezones:</span>
+                                            <span class="contact-value">GMT+2 in Winter, GMT+3 in Summer</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <div class="contact-content">
-                                    <span class="contact-label">Email:</span>
-                                    <span class="contact-value">rastosiafox@gmail.com</span>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-clock"></i>
-                                <div class="contact-content">
-                                    <span class="contact-label">Timezones:</span>
-                                    <span class="contact-value">GMT+2 in Winter, GMT+3 in Summer</span>
+                            <div class="contact-card">
+                                <h3><i class="fas fa-link"></i> Connect With Me</h3>
+                                <div class="social-links">
+                                    <div class="social-grid">
+                                        <a href="https://www.instagram.com/mk0uss4/" target="_blank" class="social-link">
+                                            <div class="social-item">
+                                                <i class="fab fa-instagram"></i>
+                                                <span>Instagram</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.tiktok.com/@mk0uss4" target="_blank" class="social-link">
+                                            <div class="social-item">
+                                                <i class="fab fa-tiktok"></i>
+                                                <span>TikTok</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://discordapp.com/users/954061819952132106" target="_blank" class="social-link">
+                                            <div class="social-item">
+                                                <i class="fab fa-discord"></i>
+                                                <span>Discord</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://github.com/rast0fx" target="_blank" class="social-link">
+                                            <div class="social-item">
+                                                <i class="fab fa-github"></i>
+                                                <span>GitHub</span>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="contact-card">
-                        <h3><i class="fas fa-link"></i> Connect With Me</h3>
-                        <div class="social-links">
-                            <div class="social-grid">
-                                <a href="https://www.instagram.com/mk0uss4/" target="_blank" class="social-link">
-                                    <div class="social-item">
-                                        <i class="fab fa-instagram"></i>
-                                        <span>Instagram</span>
-                                    </div>
-                                </a>
-                                <a href="https://www.tiktok.com/@mk0uss4" target="_blank" class="social-link">
-                                    <div class="social-item">
-                                        <i class="fab fa-tiktok"></i>
-                                        <span>TikTok</span>
-                                    </div>
-                                </a>
-                                <a href="https://discordapp.com/users/954061819952132106" target="_blank" class="social-link">
-                                    <div class="social-item">
-                                        <i class="fab fa-discord"></i>
-                                        <span>Discord</span>
-                                    </div>
-                                </a>
-                                <a href="https://github.com/rast0fx" target="_blank" class="social-link">
-                                    <div class="social-item">
-                                        <i class="fab fa-github"></i>
-                                        <span>GitHub</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                    </section>
+
         </main>
     </div>
 
@@ -1639,7 +1868,7 @@
         function openProject(projectId) {
             const modal = document.getElementById(`${projectId}-modal`);
             modal.style.display = 'flex';
-
+            
             // Close any other open modals
             const otherModals = document.querySelectorAll('.project-modal');
             otherModals.forEach(m => {
@@ -1686,12 +1915,12 @@
             let hours = now.getHours();
             let minutes = now.getMinutes();
             let seconds = now.getSeconds();
-
+            
             // 12-hour format with AM/PM
             let period = hours >= 12 ? 'PM' : 'AM';
             let displayHours = hours % 12;
             displayHours = displayHours ? displayHours : 12;
-
+            
             // Format with leading zeros
             hours = hours < 10 ? '0' + hours : hours;
             minutes = minutes < 10 ? '0' + minutes : minutes;
@@ -1703,7 +1932,7 @@
             document.getElementById('minutes').textContent = minutes;
             document.getElementById('seconds').textContent = seconds;
             document.getElementById('period').textContent = period;
-
+            
             // Optional: Update 24-hour display if exists
             const hours24 = document.getElementById('hours-24');
             if (hours24) {
@@ -1765,12 +1994,12 @@
 
         const calculator = document.getElementById('calculator');
         const display = document.getElementById('calculator-display');
-
+        
         if (calculator) {
             calculator.addEventListener('click', function(e) {
                 if (e.target.matches('button')) {
                     const value = e.target.textContent;
-
+                    
                     if (value >= '0' && value <= '9') {
                         appendNumber(value);
                     } else if (value === '.') {
@@ -1782,7 +2011,7 @@
                     } else {
                         setOperation(value);
                     }
-
+                    
                     updateDisplay();
                 }
             });
@@ -1828,9 +2057,9 @@
             let computation;
             const prev = parseFloat(previousInput);
             const current = parseFloat(currentInput);
-
+            
             if (isNaN(prev) || isNaN(current)) return;
-
+            
             switch (operation) {
                 case '+':
                     computation = prev + current;
@@ -1847,7 +2076,7 @@
                 default:
                     return;
             }
-
+            
             currentInput = computation.toString();
             operation = undefined;
             previousInput = '';
