@@ -9,19 +9,19 @@
     <style>
         /* Global Styles */
 :root {
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --primary-light: #818cf8;
-    --secondary-color: #10b981;
-    --secondary-dark: #059669;
-    --text-color: #1f2937;
-    --text-light: #4b5563;
-    --background-color: #ffffff;
-    --background-alt: #f9fafb;
-    --border-color: #e5e7eb;
-    --error-color: #ef4444;
-    --success-color: #10b981;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --primary-color: #5b56e0;
+    --primary-dark: #433ce0;
+    --primary-light: #7a75e8;
+    --secondary-color: #0fb87f;
+    --secondary-dark: #038d66;
+    --text-color: #242a37;
+    --text-light: #414b5b;
+    --background-color: #f3f4f6;
+    --background-alt: #f3f4f6;
+    --border-color: #d1d5db;
+    --error-color: #e03d3d;
+    --success-color: #0fb87f;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
     --transition: all 0.3s ease;
 }
 
@@ -140,19 +140,19 @@ section {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgba(243, 244, 246, 0.98);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
     transition: var(--transition);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 #header.scrolled {
     padding: 0.7rem 2rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -205,68 +205,115 @@ nav ul li a:hover::after {
 }
 
 /* Hero Section */
-#hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: 80px;
-    background-color: var(--background-alt);
-    position: relative;
-    overflow: hidden;
-}
-
 .hero-content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    max-width: 1200px;
+    gap: 4rem;
+    padding: 10rem 2rem 5rem;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1rem;
 }
 
-.hero-text {
-    flex: 1;
-    padding-right: 2rem;
-}
-
-.hero-text h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
     line-height: 1.2;
+    margin-bottom: 1.5rem;
 }
 
-.hero-text h1 span {
+.hero-title span {
     color: var(--primary-color);
-    display: block;
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: var(--text-light);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-.hero-image {
-    flex: 1;
+.hero-buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.hero-buttons .btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.hero-buttons .btn:hover {
+    transform: translateY(-3px);
 }
 
 .profile-circle {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid white;
+    border: 4px solid var(--primary-color);
     box-shadow: var(--shadow);
-    position: relative;
+    transition: var(--transition);
+}
+
+.profile-circle:hover {
+    transform: scale(1.05);
 }
 
 .profile-circle img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* Responsive Hero */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 8rem 2rem 5rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+    
+    .profile-circle {
+        margin: 2rem auto;
+        width: 300px;
+        height: 300px;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 6rem 1rem 3rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .profile-circle {
+        width: 250px;
+        height: 250px;
+    }
 }
 
 /* About Section */
@@ -329,69 +376,74 @@ nav ul li a:hover::after {
     padding-bottom: 5rem;
 }
 
-.large-project-card .project-button {
-    display: block !important;
-    margin-top: 1rem !important;
-    text-align: center !important;
-    padding: 0.8rem 1.5rem !important;
-    background-color: var(--primary-color) !important;
-    color: white !important;
-    border-radius: 0.5rem !important;
-    text-decoration: none !important;
-    transition: var(--transition) !important;
-    width: 100% !important;
-    max-width: 200px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    box-sizing: border-box !important;
-}
-
-.large-project-card .project-button:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
+.large-project-card {
+    background-color: var(--background-alt);
+    border-radius: 1rem;
+    overflow: hidden;
     box-shadow: var(--shadow);
-}
-
-.large-projects {
-    margin-bottom: 3rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .large-project-card img {
     width: 100%;
     height: 200px;
-    object-fit: contain;
-    border-radius: 0.5rem;
-    margin-bottom: 1.5rem;
-    transition: var(--transition);
-}
-
-.large-project-card img:hover {
-    transform: scale(1.03);
-}
-
-.mini-project-card img {
-    width: 100%;
-    height: 150px;
     object-fit: cover;
     border-radius: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.card {
-    background-color: white;
-    border-radius: 1rem;
-    overflow: hidden;
+.large-project-card h3 {
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.large-project-card p {
+    margin-bottom: auto;
+    color: var(--text-light);
+}
+
+.project-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.project-button:hover {
+    background-color: var(--primary-dark);
+    color: white;
+    transform: translateY(-2px);
     box-shadow: var(--shadow);
-    margin-bottom: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
     padding: 2rem;
 }
 
-.card h3 {
+.grid .large-project-card {
+    height: 100%;
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    flex-direction: column;
+}
+
+.grid .large-project-card .project-button {
+    margin-top: auto;
 }
 
 .large-projects .grid {
@@ -409,7 +461,7 @@ nav ul li a:hover::after {
     max-width: 100%;
     margin: 0;
     padding: 1.5rem;
-    background: white;
+    background: var(--background-alt);
     border-radius: 1rem;
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -861,17 +913,14 @@ nav ul li a:hover::after {
     
     <section id="hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="fade-in">Hi, I'm <span>Mhamad Koussa</span></h1>
-                <p class="hero-subtitle fade-in">Frontend Developer & IT Student</p>
-               <div class="fade-in">
-    <a href="#about" class="btn">About Me</a>
-    <a href="#contact" class="btn">Get In Touch</a>
-    <a href="#projects" class="btn btn-secondary">View Projects</a>
-    
-    </div>
-</div>  
-
+            <div class="hero-text fade-in">
+                <h1 class="hero-title">Hi, I'm <span>Mhamad Koussa</span> (rast0fx)</h1>
+                <p class="hero-subtitle">Frontend Developer & IT Student</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn">About Me</a>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
             </div>
             <div class="hero-image fade-in">
                 <div class="profile-circle">
@@ -906,10 +955,10 @@ nav ul li a:hover::after {
                 <div class="grid">
                     <div class="large-project-card">
                         <div class="large-project-card">
-                            <img src="https://i.postimg.cc/fbr6gbzh/image.png" alt="JFKSWCS Website">
+                            <img src="https://i.postimg.cc/7Z29Pq0q/image.png" alt="JFKSWCS Website">
                         </div>
                         <h3>JFKSWCS Website</h3>
-                        <p>A website for the John F. Kennedy Special Warfare Center and School (Zan's USAR). Features include detailed information about courses, leadership structure, and special operations training programs.</p>
+                        <p>A modern, responsive website for the John F. Kennedy Special Warfare Center and School (Zan's USAR). Features include detailed information about courses, leadership structure, and special operations training programs.</p>
                         <a href="https://rast0fx.github.io/JFKSWCS/" target="_blank" class="project-button">View Project</a>
                     </div>
                     <div class="large-project-card">
@@ -917,16 +966,16 @@ nav ul li a:hover::after {
                             <img src="https://i.postimg.cc/9f59PdT3/image.png" alt="ASOC Website">
                         </div>
                         <h3>ASOC Website</h3>
-                        <p>A website for the ASOC (Zan's USAR). Features include detailed information about units, leadership structure, and special operations training programs.</p>
+                        <p>A modern, responsive website for the ASOC (Zan's USAR). Features include detailed information about units, leadership structure, and special operations training programs.</p>
                         <a href="https://rast0fx.github.io/ASOC/" target="_blank" class="project-button">View Project</a>
                     </div>
                     <div class="large-project-card">
                         <div class="large-project-card">
                             <img src="https://i.postimg.cc/brS8VGD7/image.png" alt="To-Do List">
                         </div>
-                        <h3>Task Manager</h3>
-                        <p>A Task Manager application built with HTML, CSS, and JavaScript.</p>
-                        <a href="https://rast0fx.github.io/Task-Manager/" target="_blank" class="project-button">View Project</a>
+                        <h3>To-Do List</h3>
+                        <p>A modern, responsive To-Do List application built with HTML, CSS, and JavaScript.</p>
+                        <a href="https://rast0fx.github.io/To-Do-List/" target="_blank" class="project-button">View Project</a>
                     </div>
                     <div class="large-project-card">
                         <div class="large-project-card">
